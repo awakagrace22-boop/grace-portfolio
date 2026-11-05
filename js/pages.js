@@ -138,7 +138,7 @@
     document.title = `${p.title}: ${p.subtitle} | ${S.name}`;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", p.tagline);
-    if (!dark) document.body.classList.add("light-top");
+    document.body.classList.add("light-top");
 
     const story = [["Overview", p.overview], ["The challenge", p.challenge], ["What I did", p.solution], ["The result", p.result]]
       .filter(s => s[1]).map(s => `<section><h2>${s[0]}</h2><p>${esc(s[1])}</p></section>`).join("");
@@ -189,6 +189,10 @@
         <button class="lb-next" aria-label="Next image">›</button>
         <span class="lb-count"></span>
       </div>`;
+
+    // gallery wipe-in
+    const gio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("wipe"); gio.unobserve(e.target); } }), { threshold: .15 });
+    document.querySelectorAll(".gallery button").forEach(b => gio.observe(b));
 
     // lightbox
     const lb = $("#lb"), lbImg = lb.querySelector("img"), count = lb.querySelector(".lb-count");

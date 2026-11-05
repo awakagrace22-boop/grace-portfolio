@@ -1,4 +1,12 @@
-/* Self-hosted fonts */
-@font-face { font-family: "Italiana"; src: url(../assets/fonts/italiana.woff2) format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Big Shoulders"; src: url(../assets/fonts/big-shoulders.woff2) format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+/* Fonts
+   Bigilla (display) by Jeremie Gauthier: free for personal use; a commercial/web licence
+   is available at jeremiegauthier.gumroad.com/l/Bigilla_Typeface.
+   Nohemi (text) by Rajesh Rajput: free for personal and commercial use. */
+@font-face { font-family: "Bigilla"; src: url(../assets/fonts/Bigilla.otf) format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Bigilla"; src: url(../assets/fonts/Bigilla-Bold.otf) format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Light.woff2) format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Medium.woff2) format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-SemiBold.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Bold.woff2) format("woff2"); font-weight: 700 900; font-display: swap; }
 @font-face { font-family: "DM Mono"; src: url(../assets/fonts/dm-mono-400.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }

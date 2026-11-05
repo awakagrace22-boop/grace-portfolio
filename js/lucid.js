@@ -15,13 +15,24 @@
   const C = { bordo: "#6C151E", bordoDeep: "#4A0E14", ink: "#1A0508", green: "#0F3D3A", greenDeep: "#0A2B29", cream: "#F5DABF", cream2: "#FBEBDA", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#2F6B62" };
 
   /* ---------------- Grace, the character ---------------- */
+  const EYES = {"w":1115,"h":1041,"eyes":{"gl":{"clip":[[364,534],[367,533],[371,532],[388,528],[401,525],[406,524],[434,522],[435,522],[438,523],[440,524],[446,528],[447,529],[449,532],[453,540],[454,543],[454,548],[453,550],[452,551],[437,556],[421,561],[417,562],[412,563],[391,563],[386,562],[383,561],[378,559],[376,558],[358,546],[357,545],[357,543],[358,541],[363,535]],"p":[424.5,538.4],"r":21.9,"c":[408.0,542.8]},"gr":{"clip":[[526,519],[526,509],[527,503],[529,497],[535,485],[540,480],[543,478],[558,470],[572,463],[575,462],[590,460],[590,491],[589,495],[588,497],[570,509],[558,515],[552,517],[548,518],[543,519]],"p":[579.9,479.3],"r":20.8,"c":[559.7,491.4]},"cl":{"clip":[[341,218],[338,212],[337,207],[337,200],[338,195],[342,187],[344,185],[347,183],[349,182],[355,180],[360,179],[365,179],[371,180],[375,181],[389,185],[391,187],[393,191],[394,194],[395,198],[395,207],[394,211],[393,212],[381,220],[375,223],[372,224],[368,225],[354,225],[350,224],[344,221]],"p":[385.7,198.9],"r":17.6,"c":[365.29999999999995,202.1]},"cr":{"clip":[[451,164],[451,149],[452,145],[455,139],[457,137],[460,135],[465,133],[470,132],[475,132],[479,133],[497,139],[498,140],[501,146],[502,149],[502,163],[501,167],[498,169],[490,174],[480,179],[475,180],[468,180],[464,179],[461,178],[457,176],[456,175],[452,167]],"p":[493.5,153.1],"r":17.7,"c":[475.6,155.9]}}};
+  const eyeSvg = Object.entries(EYES.eyes).map(([k, e]) => {
+    const pts = e.clip.map(p => p.join(",")).join(" ");
+    const cx = e.c[0], cy = e.c[1];
+    const out = e.clip.map(([x, y]) => { const dx = x - cx, dy = y - cy, d = Math.hypot(dx, dy) || 1; return [(x + dx / d * 3).toFixed(1), (y + dy / d * 3).toFixed(1)].join(","); }).join(" ");
+    return `<clipPath id="clip-${k}"><polygon points="${pts}"/></clipPath>
+      <g class="eye-v" data-k="${k}" data-cx="${cx}" data-cy="${cy}" data-px="${e.p[0]}" data-py="${e.p[1]}" data-cat="${k[0] === "c" ? 1 : 0}">
+        <g clip-path="url(#clip-${k})"><circle class="pupil-v" cx="${e.p[0]}" cy="${e.p[1]}" r="${e.r}" fill="#0B0405"/>
+        <circle class="glint" cx="${e.p[0] - e.r * .35}" cy="${e.p[1] - e.r * .38}" r="${e.r * .22}" fill="#F7E4D9" opacity=".9"/></g>
+        <polygon class="lid" points="${pts}" fill="#B85D73"/>
+        <polygon points="${out}" fill="none" stroke="#1A070B" stroke-width="7" stroke-linejoin="round"/>
+      </g>`;
+  }).join("");
   const ME = `
-  <picture>
-    <source srcset="assets/images/grace-hero.webp" type="image/webp">
-    <img class="me-img" src="assets/images/grace-hero.jpg" width="1312" height="1199" alt="Illustration of Grace at her desk, chin in hand, with a cat peeking over her hair" fetchpriority="high">
-  </picture>
-  <svg class="pops-layer" viewBox="0 0 1312 1199" aria-hidden="true">
-    <g transform="translate(650 300) scale(2.3)">
+  <img class="me-img" src="assets/images/grace-cutout.webp" width="${EYES.w}" height="${EYES.h}" alt="Illustration of Grace, chin in hand, with a cat peeking over her hair" fetchpriority="high">
+  <svg class="eyes-layer" viewBox="0 0 ${EYES.w} ${EYES.h}" aria-hidden="true">${eyeSvg}</svg>
+  <svg class="pops-layer" viewBox="0 0 ${EYES.w} ${EYES.h}" aria-hidden="true">
+    <g transform="translate(470 250) scale(2.3)">
     <g id="pops">
       <g class="pop" data-x="-150" data-y="-170"><rect x="-14" y="-30" width="28" height="44" rx="9" fill="${C.bordo}" stroke="${C.ink}" stroke-width="4"/><rect x="-5" y="-44" width="10" height="16" fill="${C.ink}"/><rect x="-5" y="-48" width="24" height="7" rx="3" fill="${C.ink}"/><rect x="-9" y="-12" width="18" height="16" rx="3" fill="${C.cream}"/></g>
       <g class="pop" data-x="70" data-y="-215"><path d="M0 -26 L14 6 L6 22 H-6 L-14 6 Z" fill="${C.cream}" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/><circle cy="2" r="4" fill="${C.ink}"/><path d="M0 2 V-24" stroke="${C.ink}" stroke-width="3"/><rect x="-9" y="22" width="18" height="9" fill="${C.ink}"/></g>
@@ -45,9 +56,9 @@
       <rect x="30" y="32" width="52" height="40" rx="8"/><rect x="92" y="32" width="52" height="40" rx="8"/><rect x="154" y="32" width="52" height="40" rx="8"/><rect x="216" y="32" width="52" height="40" rx="8"/>
       <path d="M280 32 H306 Q324 32 332 52 L340 72 H280 Z"/>
     </g>
-    <text x="150" y="110" text-anchor="middle" font-family="Big Shoulders, sans-serif" font-weight="900" font-size="15" fill="${C.cream}" letter-spacing="2">PICK ME UP · NAIROBI</text>
+    <text x="150" y="110" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="15" fill="${C.cream}" letter-spacing="2">PICK ME UP · NAIROBI</text>
     <rect x="314" y="112" width="38" height="14" rx="2" fill="#F2D24B" stroke="${C.ink}" stroke-width="2"/>
-    <text x="333" y="123" text-anchor="middle" font-family="Big Shoulders, sans-serif" font-weight="900" font-size="10" fill="${C.ink}">KGA 254</text>
+    <text x="333" y="123" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}">KGA 254</text>
     <circle cx="350" cy="78" r="6" fill="#FFE9A8" stroke="${C.ink}" stroke-width="3"/>
     <g class="wheel"><circle cx="78" cy="138" r="24" fill="${C.ink}"/><circle cx="78" cy="138" r="10" fill="${C.cream}"/></g>
     <g class="wheel"><circle cx="286" cy="138" r="24" fill="${C.ink}"/><circle cx="286" cy="138" r="10" fill="${C.cream}"/></g>
@@ -69,7 +80,8 @@
         return `<span class="ch${cls}">${c}</span>`;
       }).join("")}</span>`).join(" ");
   });
-  $$(".words").forEach(el => { el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="wd">${w}</span>`).join(""); });
+  const HL = ["three", "seconds.", "creative", "commerce.", "shelf", "scroll.", "data."];
+  $$(".words").forEach(el => { el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="wd${HL.includes(w) ? " hl" : ""}">${w}</span>`).join(""); });
 
   /* ---------------- content from data.js ---------------- */
   const imgSrc = (u, w) => (/framerusercontent\.com/.test(u) ? u.split("?")[0] + "?scale-down-to=" + (w || 1024) : u);
@@ -86,12 +98,50 @@
   $("#tools").innerHTML = S.tools.slice(0, 11).map(t => `<span>${esc(t)}</span>`).join("");
   $("#yr").textContent = new Date().getFullYear();
 
+  /* ---------------- view bubble over project cards ---------------- */
+  const vb = $("#viewBubble");
+  addEventListener("pointermove", e => { vb.style.left = e.clientX + "px"; vb.style.top = e.clientY + "px"; vb.classList.toggle("on", !!e.target.closest(".proj")); }, { passive: true });
+  /* magnetic buttons */
+  $$(".pill, .copy").forEach(b => {
+    b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    b.addEventListener("pointerleave", () => { b.style.transform = ""; });
+  });
+
   /* ---------------- copy email ---------------- */
   $("#copy").addEventListener("click", () => {
     const b = $("#copy");
     navigator.clipboard?.writeText(S.email).then(() => { b.textContent = "Copied"; b.classList.add("done"); setTimeout(() => { b.textContent = "Copy"; b.classList.remove("done"); }, 1600); }, () => location.href = "mailto:" + S.email);
   });
 
+
+  /* ---------------- eyes follow the cursor ---------------- */
+  let mx = null, my = null;
+  addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  const eyesV = $$(".eye-v");
+  (function look() {
+    eyesV.forEach(g => {
+      const svg = g.ownerSVGElement, m = svg.getScreenCTM(); if (!m) return;
+      const cx = +g.dataset.cx, cy = +g.dataset.cy, px = +g.dataset.px, py = +g.dataset.py, cat = g.dataset.cat === "1";
+      let tx = px, ty = py;
+      if (mx !== null) {
+        const sx = cx * m.a + m.e, sy = cy * m.d + m.f;
+        const dx = mx - sx, dy = my - sy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 260);
+        const rx = cat ? 13 : 24, ry = cat ? 12 : 11;
+        tx = cx + dx / d * rx * k; ty = cy + dy / d * ry * k;
+      }
+      const c = g.querySelectorAll("circle");
+      const cur = g._p || [px, py];
+      cur[0] += (tx - cur[0]) * .18; cur[1] += (ty - cur[1]) * .18; g._p = cur;
+      const ox = cur[0] - px, oy = cur[1] - py;
+      c.forEach(el => el.setAttribute("transform", `translate(${ox.toFixed(2)} ${oy.toFixed(2)})`));
+    });
+    requestAnimationFrame(look);
+  })();
+  /* blink now and then */
+  setInterval(() => {
+    const who = Math.random() < .5 ? "g" : "c";
+    $$(`.eye-v[data-k^="${who}"]`).forEach(g => { g.classList.add("blink"); setTimeout(() => g.classList.remove("blink"), 180); });
+  }, 3200);
 
   /* ---------------- live selection-box size ---------------- */
   const sel = $(".sel"), dim = $("#dim");
@@ -156,8 +206,8 @@
   gs.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   /* hero idle loops (both modes) */
-  gs.set("#me", { xPercent: FLOW ? 0 : -50 });
-  gs.to(".me-img", { y: -6, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  gs.set("#me", { xPercent: FLOW ? 0 : -44 });
+  gs.to("#me", { "--breath": 1, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.to(".dd", { y: "random(-10, 10)", x: "random(-8, 8)", rotation: "random(-12, 12)", duration: "random(2, 4)", ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.set(".pop", { x: 0, y: 0, scale: 0, transformOrigin: "50% 50%" });
   gs.to(".wheel", { rotation: 360, svgOrigin: "0 0", transformOrigin: "50% 50%", duration: 1, ease: "none", repeat: -1 });
@@ -199,7 +249,8 @@
     .to(".name-wrap", { y: -60, autoAlpha: 0, duration: .5 }, .35)
 ;
   $$(".pop").forEach((p, i) => tl.to(p, { x: +p.dataset.x, y: +p.dataset.y, scale: 1, duration: .45, ease: "back.out(1.7)" }, .3 + i * .05));
-  tl.to("#me", { scale: 9, transformOrigin: "36% 33%", duration: 1.1, ease: "power3.in" }, .95)
+  tl.to("#me", { scale: 10, transformOrigin: "26% 42%", duration: 1.1, ease: "power3.in" }, .95)
+    .to(".halo", { scale: 3, autoAlpha: 0, duration: .8, ease: "power2.in" }, .9)
     .to(".pop", { scale: 2.4, autoAlpha: 0, duration: .6, stagger: .02 }, 1.1)
     .to("#s-hero .doodles", { autoAlpha: 0, duration: .4 }, .9);
   colour("hello", 1.65);
@@ -207,6 +258,8 @@
 
   /* 1 · hello */
   show("#s-hello", 1.8, .2);
+  tl.from("#s-hello .band", { xPercent: -30, autoAlpha: 0, duration: .4 }, 1.95)
+    .from("#s-hello", { "--arch": 0 }, 1.9);
   tl.from("#s-hello .hi-line .ch", { yPercent: 110, autoAlpha: 0, rotate: 8, stagger: .025, duration: .35, ease: "back.out(1.6)" }, 1.9)
     .from("#s-hello .cap", { y: 30, autoAlpha: 0, duration: .3 }, 2.25)
     .from("#s-hello .dd", { scale: 0, duration: .3, stagger: .04 }, 2.0);

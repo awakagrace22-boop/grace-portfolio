@@ -13,8 +13,8 @@
   --paper: #FBEBDA;
   --white: #FFFFFF;
 
-  --display: "Italiana", "Didot", serif;
-  --body: "Big Shoulders", "Arial Narrow", sans-serif;
+  --display: "Bigilla", "Didot", "Bodoni 72", serif;
+  --body: "Nohemi", "Helvetica Neue", Arial, sans-serif;
   --mono: "DM Mono", ui-monospace, monospace;
   --soft: normal;
 
@@ -29,7 +29,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
-  margin: 0; font-family: var(--body); font-size: 1.2rem; line-height: 1.5; letter-spacing: .01em;
+  margin: 0; font-family: var(--body); font-size: 1.12rem; line-height: 1.6; letter-spacing: 0;
   color: var(--oxblood); background: var(--paper); -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 /* film grain for depth */
@@ -501,3 +501,23 @@ body.light-top .nav:not(.is-solid) .nav-links a:hover { background: rgba(46,6,16
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- refinements: grain, beige project views, green + burgundy ---------- */
+body::after { opacity: .28; mix-blend-mode: overlay; background-image: url(../assets/images/paper-grain.png); background-size: 256px auto; }
+body[data-page="project"], body[data-page="work"] { background: var(--blush); }
+body[data-page="project"] .section, body[data-page="work"] .section { background: var(--blush); }
+.p-hero, .p-hero.dark { background: var(--blush) !important; color: var(--burgundy) !important; }
+.p-hero h1, .p-hero.dark h1 { color: var(--burgundy) !important; }
+.p-hero .lede { color: var(--oxblood); }
+.p-cover { box-shadow: 0 30px 60px -30px rgba(42, 7, 11, .45); }
+.next-proj { background: var(--green); color: var(--blush); }
+.next-proj small { color: var(--blush); opacity: .8; }
+.page-head { border-bottom: 14px solid var(--green); }
+.facts h2 { border-bottom-color: var(--green); }
+.p-stat { background: var(--green); color: var(--blush); }
+.p-stat:nth-child(2) { background: var(--burgundy); color: var(--blush); }
+.footer { border-top: 14px solid var(--green); }
+.chip[aria-pressed="true"] { background: var(--green); }
+.gallery button { clip-path: inset(0 0 0 0 round 22px); }
+.gallery button.wipe { animation: wipe 1s cubic-bezier(.16,1,.3,1) both; }
+@keyframes wipe { from { clip-path: inset(100% 0 0 0 round 22px); } to { clip-path: inset(0 0 0 0 round 22px); } }
