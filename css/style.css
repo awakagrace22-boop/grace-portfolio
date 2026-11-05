@@ -13,7 +13,7 @@
   --paper: #FBEBDA;
   --white: #FFFFFF;
 
-  --display: "Bigilla", "Didot", "Bodoni 72", serif;
+  --display: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   --body: "Nohemi", "Helvetica Neue", Arial, sans-serif;
   --mono: "DM Mono", ui-monospace, monospace;
   --soft: normal;
@@ -530,3 +530,5 @@ body[data-page="project"] .section, body[data-page="work"] .section { background
 @media (max-width: 1100px) { .now-list { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .now-list { grid-template-columns: 1fr; } }
 .svc-tags { font-weight: 700; opacity: .8; font-size: .95rem; }
+/* Open Sans display tuning */
+h1, h2, .mega { letter-spacing: -.02em; }

@@ -13,7 +13,7 @@
   --frame: #1A0508;
   --fg: var(--cream);
   --bg: #64132F;
-  --display: "Bigilla", "Didot", "Bodoni 72", serif;
+  --display: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   --ui: "Nohemi", "Helvetica Neue", Arial, sans-serif;
   --pad: clamp(16px, 2.2vw, 32px);
   --ease: cubic-bezier(.34, 1.56, .64, 1);
@@ -431,3 +431,7 @@ html.flow #s-explore { overflow-x: auto; scroll-snap-type: x mandatory; align-it
 .matatu svg { overflow: visible; }
 .matatu .underglow { animation: glow 1.2s ease-in-out infinite alternate; }
 @keyframes glow { from { opacity: .5; } to { opacity: 1; } }
+/* Open Sans display tuning */
+.name { letter-spacing: -.01em; font-weight: 600; }
+.hi-line, .bl-years, .do-title, .contact h2, .based-text, .work-head h2, .bl-inner h3, .c2, .story-num b { letter-spacing: -.02em; }
+.phrase { font-weight: 300; }
