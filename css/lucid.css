@@ -37,7 +37,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .spacer { height: 2000vh; } /* set exactly by JS */
 .layer { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 7rem var(--pad) 6rem; visibility: hidden; opacity: 0; }
-#s-hero { visibility: visible; opacity: 1; justify-content: flex-start; padding-top: clamp(5.5rem, 12vh, 8rem); }
+#s-hero { visibility: visible; opacity: 1; justify-content: flex-start; padding-top: clamp(4.2rem, 11vh, 8rem); }
 .grain {
   position: fixed; inset: 10px; border-radius: 24px; z-index: 50; pointer-events: none; opacity: .42; mix-blend-mode: overlay;
   background: url(../assets/images/paper-grain.png) 0 0 / 256px auto;
@@ -90,19 +90,19 @@ img, svg { display: block; max-width: 100%; }
 .hero-top { text-align: center; position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; }
 .kicker { font-family: var(--ui); font-weight: 800; text-transform: uppercase; font-size: clamp(1.1rem, 1.8vw, 1.7rem); letter-spacing: .04em; margin: 0 0 .4rem; color: var(--cream); opacity: .9; }
 .name-wrap { position: relative; padding: .05em .12em; }
-.name { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(3.6rem, 10.5vw, 11rem); line-height: .95; letter-spacing: .02em; text-transform: uppercase; color: var(--cream-2); white-space: nowrap; }
+.name { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(3rem, min(10.5vw, 17vh), 11rem); line-height: .95; letter-spacing: .02em; text-transform: uppercase; color: var(--cream-2); white-space: nowrap; }
 .sel { position: absolute; inset: 0; border: 1.5px solid var(--cream); pointer-events: none; }
 .sel span { position: absolute; width: 10px; height: 10px; background: var(--bordo); border: 1.5px solid var(--cream); }
 .sel span:nth-child(1) { left: -6px; top: -6px; } .sel span:nth-child(2) { right: -6px; top: -6px; }
 .sel span:nth-child(3) { left: -6px; bottom: -6px; } .sel span:nth-child(4) { right: -6px; bottom: -6px; }
 .dim { position: absolute; right: -4px; top: -2.2rem; font-style: normal; font-family: var(--ui); font-weight: 700; font-size: .95rem; background: var(--green); color: var(--cream); padding: .15rem .55rem; border-radius: 6px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.phrase { margin: .5rem 0 0; font-family: var(--display); text-transform: uppercase; font-size: clamp(1.6rem, 3.6vw, 3.4rem); letter-spacing: .06em; color: var(--cream); opacity: .6; display: flex; gap: .4em; flex-wrap: wrap; justify-content: center; }
-.me { position: absolute; left: 50%; bottom: 0; height: min(70vh, 760px); aspect-ratio: 1115 / 1041; z-index: 2; --breath: 0; }
+.phrase { margin: .5rem 0 0; font-family: var(--display); text-transform: uppercase; font-size: clamp(1.2rem, min(3.6vw, 6vh), 3.4rem); letter-spacing: .06em; color: var(--cream); opacity: .6; display: flex; gap: .4em; flex-wrap: wrap; justify-content: center; }
+.me { position: absolute; left: 50%; bottom: 0; height: min(70vh, calc(100vh - 270px), 760px); aspect-ratio: 1115 / 1041; z-index: 2; --breath: 0; }
 .me-img { display: block; width: 100%; height: 100%; object-fit: contain; transform: translateY(calc(var(--breath) * -5px)); filter: drop-shadow(0 30px 40px rgba(20, 2, 6, .35)); }
 .eyes-layer, .pops-layer { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; transform: translateY(calc(var(--breath) * -5px)); }
 .eye-v .lid { opacity: 0; }
 .eye-v.blink .lid { opacity: 1; }
-.halo { position: absolute; left: 50%; bottom: -18vh; width: min(92vh, 980px); aspect-ratio: 1; border-radius: 50%; transform: translateX(-50%); z-index: 1;
+.halo { position: absolute; left: 50%; bottom: -18vh; width: min(92vh, calc(130vh - 350px), 980px); aspect-ratio: 1; border-radius: 50%; transform: translateX(-50%); z-index: 1;
   background: radial-gradient(circle at 50% 40%, #145049 0%, var(--green) 55%, var(--green-deep) 100%); box-shadow: 0 0 0 18px rgba(15, 61, 58, .35), 0 0 0 40px rgba(15, 61, 58, .15); }
 .halo::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: url(../assets/images/paper-grain.png); mix-blend-mode: overlay; opacity: .55; }
 .cursor { position: absolute; left: 0; top: 0; z-index: 6; pointer-events: none; display: flex; align-items: flex-start; gap: 2px; color: var(--cream); }
