@@ -47,11 +47,10 @@ window.SITE = {
   ],
 
   services: [
-    { title: "Packaging design", text: "Labels, pack families, mockups and prototypes that hold their own on a crowded shelf, built to pass regulatory checks and go straight to print." },
-    { title: "Brand & campaigns", text: "Campaign visual systems, launch kits and seasonal promos that turn a business goal into something people notice, from concept to rollout." },
-    { title: "Digital & social", text: "Content planning, community management and performance tracking across Meta, Google Analytics and Search Console, so the work keeps getting better." },
-    { title: "Identity systems", text: "Logos, guidelines and flexible visual systems that stay consistent across packaging, print, trade, merch and events." },
-    { title: "Corporate communication", text: "Catalogues, newsletters, board decks and internal campaigns that make big companies sound like one team." }
+    { title: "Brand & Creative Design", text: "Building visual identities and creative assets that give brands character, consistency and a reason to be remembered.", tags: ["Brand identity", "Packaging design", "Campaign visuals", "Art direction", "3D product visuals"] },
+    { title: "Digital Marketing", text: "Connecting creative thinking with digital strategy to build awareness, engage audiences and make brands more visible.", tags: ["Social media strategy", "Digital campaigns", "Content development", "Meta Ads", "Performance analytics"] },
+    { title: "Communications & Storytelling", text: "Turning messages into stories people understand, remember and want to engage with.", tags: ["Brand messaging", "Corporate communications", "Internal campaigns", "Creative storytelling", "Launch communications"] },
+    { title: "Content & Visual Production", text: "Bringing ideas to life through visual content, from the first concept to the final frame.", tags: ["Photography", "Videography", "Video editing", "Motion content", "Creative direction"] }
   ],
 
   experience: [
@@ -262,25 +261,144 @@ window.PROJECTS = [
     result: "",
     stats: [],
     images: []
+  }
+];
+
+
+/* =========================================================
+   EXPLORATIONS: freelance work, briefs and design challenges.
+   Add a new one by copying a block below. Images live in
+   assets/images/explorations/. Each one gets its own page at
+   project.html?p=<slug>.
+   ========================================================= */
+const X = "assets/images/explorations/";
+const xs = (name, n) => Array.from({ length: n }, (_, i) => X + name + "-" + String(i + 1).padStart(2, "0") + ".webp");
+
+window.EXPLORATIONS = [
+  {
+    slug: "blaire",
+    title: "BLAIRE",
+    subtitle: "Skincare brand concept",
+    brand: "BLAIRE",
+    year: "2026",
+    kind: "Freelance",
+    category: "Exploration",
+    color: "#6C151E",
+    tagline: "Beauty in its softest form: a skincare brand built on softness, luminosity and sensory storytelling.",
+    role: ["Brand identity", "Packaging design", "Campaign art direction"],
+    tools: ["Illustrator", "Photoshop", "3D visualisation"],
+    elements: ["Brand identity", "Luxury skincare packaging", "3D product visuals", "Campaign art direction", "PR box and merch", "Social and launch visuals"],
+    overview: "BLAIRE is a modern skincare and beauty brand concept centred on softness, luminosity and elevated sensory storytelling.",
+    challenge: "Build a cohesive beauty experience across many touchpoints, where the packaging, the campaign and the launch all feel like the same glow.",
+    solution: "A creative direction that sits where skincare, luxury packaging and editorial imagery meet: brand identity, a packaging family, 3D product visuals, campaign art direction, PR boxes, merch and launch content.",
+    result: "A brand that feels immersive, refined and emotionally connected to modern beauty culture, where glow, texture, light and form become part of the story.",
+    stats: [],
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7460237047987970048/",
+    images: xs("blaire", 15)
   },
   {
-    slug: "melto-ice-cream",
-    title: "Melto Ice Cream",
-    subtitle: "Brand identity",
-    brand: "Melto",
+    slug: "nocaff",
+    title: "NOCAFF",
+    subtitle: "Canned decaf coffee brand",
+    brand: "NOCAFF",
     year: "2026",
-    category: "Identity",
-    color: "#F5DABF",
-    featured: false,
-    tagline: "A brand identity for an ice cream that wants to be noticed.",
-    role: ["Brand identity", "Packaging"],
+    kind: "Design challenge",
+    category: "Exploration",
+    color: "#0F3D3A",
+    tagline: "All Coffee. No Chaos. Repositioning decaf from the back-up option to a premium lifestyle product.",
+    role: ["Brand strategy", "Brand identity", "Packaging design"],
     tools: ["Illustrator", "Photoshop"],
-    elements: ["Logo design", "Colour system", "Packaging"],
-    overview: "A brand identity for Melto Ice Cream: logo, colour system and packaging. (Add your full case study text here.)",
+    elements: ["Strategy-led branding", "Can packaging", "Campaign visuals", "Merchandise", "Digital applications"],
+    overview: "NOCAFF is a modern canned decaf coffee brand for people who love coffee culture, taste and ritual, but would rather skip the caffeine rush.",
+    challenge: "Decaf usually plays second fiddle. The brand had to make it feel like a first choice.",
+    solution: "A complete visual system built around one idea, All Coffee. No Chaos., carried across packaging, campaign visuals, merch and digital.",
+    result: "A cohesive, commercially relevant identity, and a reminder of why I enjoy designing in the first place. I do challenges like this whenever I hit a creative block.",
+    stats: [],
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7454541190097485824/",
+    images: xs("nocaff", 9)
+  },
+  {
+    slug: "oh-belly",
+    title: "Oh Belly",
+    subtitle: "Prebiotic soda identity",
+    brand: "Oh Belly",
+    year: "2026",
+    kind: "DesignerBriefs brief",
+    category: "Exploration",
+    color: "#6C151E",
+    tagline: "A soda-first identity that communicates feeling before function.",
+    role: ["Brand identity", "Packaging identity"],
+    tools: ["Illustrator", "Photoshop"],
+    elements: ["Brand identity", "Can packaging", "Character", "Colour system"],
+    overview: "A DesignerBriefs brief for Oh Belly, a prebiotic soda concept.",
+    challenge: "Gut-health drinks often lead with the science. This one needed to lead with how it feels.",
+    solution: "A soda-first identity built from colour, character and composition, so the can feels approachable and modern before you read a word.",
+    result: "",
+    stats: [],
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7419631498569633792/",
+    images: xs("ohbelly", 7)
+  },
+  {
+    slug: "3d-stills",
+    title: "3D Still Shots",
+    subtitle: "3D beauty stills",
+    brand: "Personal",
+    year: "2025",
+    kind: "100 Days of Design",
+    category: "Exploration",
+    color: "#0F3D3A",
+    tagline: "Compacts and oils floating in a summer sky: still shots from a 3D beauty project for my 100 Days of Design challenge.",
+    role: ["3D design", "Product visualisation"],
+    tools: ["Blender", "Photoshop"],
+    elements: ["3D modelling", "Lighting", "Rendering"],
+    overview: "Still shots from a 3D project I worked on for my #100DaysofDesignChallenge.",
     challenge: "",
     solution: "",
     result: "",
     stats: [],
-    images: []
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7345796572284096512/",
+    images: xs("stills", 4)
+  },
+  {
+    slug: "melto-ice-cream",
+    title: "Melto",
+    subtitle: "Ice cream brand identity",
+    brand: "Melto",
+    year: "2025",
+    kind: "100 Days of Design",
+    category: "Exploration",
+    color: "#F5DABF",
+    tagline: "A pre-packed ice cream that skips the fluff and leans into flavour.",
+    role: ["Brand identity", "Packaging", "Merch design"],
+    tools: ["Illustrator", "Photoshop"],
+    elements: ["Wordmark with a swirl", "Packaging system", "Merch design", "Concept, tone and vibe"],
+    overview: "Melto is a fictional pre-packed ice cream brand made for my #100DaysofDesignChallenge. The idea is simple: no weird extras, just great texture and that perfect melty moment.",
+    challenge: "Keep it simple. Let the product, the texture and the melt do the talking.",
+    solution: "A clean wordmark with a swirl, then a packaging and merch system that feels as smooth and creamy as the ice cream itself.",
+    result: "A reminder that sometimes, less is definitely more.",
+    stats: [],
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7330588780166381568/",
+    images: xs("melto", 8)
+  },
+  {
+    slug: "veloure",
+    title: "Veloure",
+    subtitle: "3D product visualisation",
+    brand: "Veloure",
+    year: "2024",
+    kind: "3D visualisation",
+    category: "Exploration",
+    color: "#0F3D3A",
+    tagline: "A moisturising cream, rendered in 3D and given a backdrop that matches its personality.",
+    role: ["3D product visualisation", "Compositing"],
+    tools: ["Blender", "Photoshop"],
+    elements: ["3D modelling", "Product render", "Compositing"],
+    overview: "Back to some 3D product visualisation: Veloure Cosmetic Moisturising Cream, modelled, lit and rendered in Blender, then composited.",
+    challenge: "",
+    solution: "",
+    result: "",
+    stats: [],
+    link: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7235186671695085568/",
+    images: xs("veloure", 2)
   }
 ];

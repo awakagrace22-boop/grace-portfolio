@@ -1,5 +1,5 @@
 /* ==========================================================
-   "Inside the mind of Grace Awaka": scroll journey
+   Grace Awaka: scroll journey ("Scroll to unpack")
    GSAP + ScrollTrigger + Lenis. Content lives in data.js.
    ========================================================== */
 (function () {
@@ -47,22 +47,53 @@
 
   /* ---------------- Nairobi matatu ---------------- */
   const MATATU = `
-  <svg viewBox="0 0 360 170" aria-hidden="true">
-    <rect x="70" y="8" width="210" height="12" rx="4" fill="${C.ink}"/><rect x="90" y="2" width="8" height="10" fill="${C.ink}"/><rect x="250" y="2" width="8" height="10" fill="${C.ink}"/>
-    <path d="M24 30 Q24 18 40 18 H300 Q330 18 342 50 L352 90 Q356 106 356 116 V128 Q356 136 348 136 H20 Q12 136 12 128 V44 Q12 30 24 30Z" fill="${C.cream}" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
-    <rect x="12" y="96" width="344" height="18" fill="${C.bordo}"/>
-    <path d="M12 86 H356" stroke="${C.green}" stroke-width="6"/>
-    <g fill="${C.greenDeep}" stroke="${C.ink}" stroke-width="4">
-      <rect x="30" y="32" width="52" height="40" rx="8"/><rect x="92" y="32" width="52" height="40" rx="8"/><rect x="154" y="32" width="52" height="40" rx="8"/><rect x="216" y="32" width="52" height="40" rx="8"/>
-      <path d="M280 32 H306 Q324 32 332 52 L340 72 H280 Z"/>
+  <svg viewBox="0 0 400 200" aria-hidden="true">
+    <defs>
+      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#FF3D8B"/><stop offset=".35" stop-color="#FFB627"/><stop offset=".7" stop-color="#22D1C3"/><stop offset="1" stop-color="#7B4DFF"/></linearGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#C77DFF" stop-opacity=".9"/><stop offset="1" stop-color="#C77DFF" stop-opacity="0"/></radialGradient>
+      <clipPath id="bodyclip"><path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z"/></clipPath>
+    </defs>
+    <ellipse class="underglow" cx="200" cy="176" rx="190" ry="16" fill="url(#glow)"/>
+    <!-- roof rack + spoiler -->
+    <path d="M60 30 L72 12 H300 L316 30" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="100" y="8" width="150" height="10" rx="5" fill="${C.ink}"/>
+    <path d="M18 50 L4 40 H34" fill="${C.ink}"/>
+    <!-- body -->
+    <path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z" fill="url(#nb)"/>
+    <g clip-path="url(#bodyclip)">
+      <!-- graffiti art -->
+      <path d="M10 120 Q60 90 110 118 T210 112 T310 120 T400 108 V160 H10Z" fill="${C.ink}" opacity=".9"/>
+      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#FFE14D" stroke-width="4"/>
+      <g fill="#FFE14D" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
+      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#FFE14D" opacity=".85"/>
+      <path d="M118 84 q8 -18 22 -6 q14 -16 20 6" fill="none" stroke="#fff" stroke-width="3" opacity=".7"/>
     </g>
-    <text x="150" y="110" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="15" fill="${C.cream}" letter-spacing="2">PICK ME UP · NAIROBI</text>
-    <rect x="314" y="112" width="38" height="14" rx="2" fill="#F2D24B" stroke="${C.ink}" stroke-width="2"/>
-    <text x="333" y="123" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}">KGA 254</text>
-    <circle cx="350" cy="78" r="6" fill="#FFE9A8" stroke="${C.ink}" stroke-width="3"/>
-    <g class="wheel"><circle cx="78" cy="138" r="24" fill="${C.ink}"/><circle cx="78" cy="138" r="10" fill="${C.cream}"/></g>
-    <g class="wheel"><circle cx="286" cy="138" r="24" fill="${C.ink}"/><circle cx="286" cy="138" r="10" fill="${C.cream}"/></g>
-    <path d="M-30 120 h30 M-40 100 h34 M-24 80 h20" stroke="${C.cream}" stroke-width="4" stroke-linecap="round" opacity=".6" class="speed"/>
+    <path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+    <!-- tinted windows -->
+    <g fill="#140A18" stroke="${C.ink}" stroke-width="4">
+      <rect x="36" y="42" width="56" height="40" rx="8"/><rect x="100" y="42" width="56" height="40" rx="8"/><rect x="164" y="42" width="56" height="40" rx="8"/><rect x="228" y="42" width="56" height="40" rx="8"/>
+      <path d="M294 42 H320 Q340 42 348 62 L356 82 H294 Z"/>
+    </g>
+    <g fill="none" stroke="#fff" stroke-width="3" opacity=".35"><path d="M44 74 L62 48"/><path d="M108 74 L126 48"/><path d="M172 74 L190 48"/><path d="M236 74 L254 48"/></g>
+    <!-- route board -->
+    <rect x="298" y="46" width="44" height="18" rx="3" fill="#FFE14D" stroke="${C.ink}" stroke-width="2.5"/>
+    <text x="320" y="60" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="13" fill="${C.ink}">45</text>
+    <!-- side lettering -->
+    <text x="164" y="106" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="20" fill="#fff" stroke="${C.ink}" stroke-width="4" paint-order="stroke" letter-spacing="1" transform="rotate(-3 164 100)">GITHURAI 45</text>
+    <text x="300" y="120" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}" letter-spacing="1">GRACE ON BOARD</text>
+    <!-- lights -->
+    <circle cx="372" cy="94" r="7" fill="#FFF3B0" stroke="${C.ink}" stroke-width="3"/>
+    <rect x="20" y="96" width="8" height="18" rx="2" fill="#FF2E4D" stroke="${C.ink}" stroke-width="2"/>
+    <g class="leds"><circle cx="40" cy="34" r="3" fill="#22D1C3"/><circle cx="90" cy="34" r="3" fill="#FF3D8B"/><circle cx="140" cy="34" r="3" fill="#FFE14D"/><circle cx="190" cy="34" r="3" fill="#22D1C3"/><circle cx="240" cy="34" r="3" fill="#FF3D8B"/><circle cx="290" cy="34" r="3" fill="#FFE14D"/></g>
+    <!-- plate -->
+    <rect x="336" y="134" width="40" height="14" rx="2" fill="#FFE14D" stroke="${C.ink}" stroke-width="2"/>
+    <text x="356" y="145" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="9" fill="${C.ink}">KGA 45G</text>
+    <!-- chrome rims -->
+    <g class="wheel"><circle cx="88" cy="158" r="27" fill="${C.ink}"/><circle cx="88" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M88 142 V174 M72 158 H104 M77 147 L99 169 M99 147 L77 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="88" cy="158" r="4" fill="${C.ink}"/></g>
+    <g class="wheel"><circle cx="310" cy="158" r="27" fill="${C.ink}"/><circle cx="310" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M310 142 V174 M294 158 H326 M299 147 L321 169 M321 147 L299 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="310" cy="158" r="4" fill="${C.ink}"/></g>
+    <!-- music blasting -->
+    <g class="notes" fill="${C.cream}"><path d="M150 20 v-16 l12 -3 v14" stroke="${C.cream}" stroke-width="2.5" fill="none"/><circle cx="147" cy="20" r="4"/><circle cx="159" cy="15" r="4"/><path d="M236 16 v-14" stroke="${C.cream}" stroke-width="2.5"/><circle cx="233" cy="17" r="4"/></g>
+    <path d="M-30 140 h30 M-44 116 h36 M-26 92 h22" stroke="${C.cream}" stroke-width="4" stroke-linecap="round" opacity=".6" class="speed"/>
   </svg>`;
 
   $("#me").innerHTML = ME;
@@ -80,7 +111,7 @@
         return `<span class="ch${cls}">${c}</span>`;
       }).join("")}</span>`).join(" ");
   });
-  const HL = ["three", "seconds.", "creative", "commerce.", "shelf", "scroll.", "data."];
+  const HL = ["job", "beyond", "dots.", "making."];
   $$(".words").forEach(el => { el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="wd${HL.includes(w) ? " hl" : ""}">${w}</span>`).join(""); });
 
   /* ---------------- content from data.js ---------------- */
@@ -95,7 +126,23 @@
       <h3>${esc(p.tagline)}</h3>
       <p>${esc(p.result || p.overview).slice(0, 140)}</p>
     </a>`).join(""));
-  $("#tools").innerHTML = S.tools.slice(0, 11).map(t => `<span>${esc(t)}</span>`).join("");
+  const X = window.EXPLORATIONS || [];
+  $("#xtrack").insertAdjacentHTML("beforeend", X.map((p, i) => `
+    <a class="proj xcard" href="project.html?p=${p.slug}">
+      <div class="label2"><span>${esc(p.title)}</span><em>${esc(p.kind)} · ${esc(p.year)}</em></div>
+      <div class="cover" style="--c:${p.color}">${p.images.length
+        ? `<img src="${p.images[0]}" alt="${esc(p.title)}, ${esc(p.subtitle).toLowerCase()}" loading="lazy">`
+        : `<span class="ph">${esc(p.title)}</span>`}<span class="xsticker">${String(i + 1).padStart(2, "0")}</span></div>
+      <h3>${esc(p.subtitle)}</h3>
+      <p>${esc(p.tagline)}</p>
+    </a>`).join(""));
+  $("#doGrid").innerHTML = S.services.map((d, i) => `
+    <article class="do-card">
+      <span class="do-n">${String(i + 1).padStart(2, "0")}</span>
+      <h3>${esc(d.title)}</h3>
+      <p>${esc(d.text)}</p>
+      <ul>${(d.tags || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+    </article>`).join("");
   $("#yr").textContent = new Date().getFullYear();
 
   /* ---------------- view bubble over project cards ---------------- */
@@ -143,13 +190,7 @@
     $$(`.eye-v[data-k^="${who}"]`).forEach(g => { g.classList.add("blink"); setTimeout(() => g.classList.remove("blink"), 180); });
   }, 3200);
 
-  /* ---------------- live selection-box size ---------------- */
-  const sel = $(".sel"), dim = $("#dim");
-  (function dims() {
-    const r = sel.getBoundingClientRect();
-    dim.textContent = `${Math.round(r.width)} × ${Math.round(r.height)}`;
-    requestAnimationFrame(dims);
-  })();
+
 
   /* ---------------- sound: a soft synthesised pad ---------------- */
   const sound = {
@@ -192,13 +233,13 @@
     sound.on ? sound.start() : sound.stop();
     sbtn.setAttribute("aria-pressed", sound.on);
     sbtn.setAttribute("aria-label", sound.on ? "Turn background music off" : "Turn background music on");
-    $(".sound-label", sbtn).textContent = sound.on ? "Sound on" : "Sound off";
+    $(".sound-label", sbtn).textContent = sound.on ? "Music on" : "Music off";
   });
 
   /* ---------------- per-scene colours ---------------- */
   const SCENES = {
-    hero: ["#64132F", C.cream], hello: [C.green, C.cream], systems: [C.cream, C.bordo], beliefs: [C.bordo, C.cream],
-    based: [C.green, C.cream], work: [C.cream, C.bordo], about: [C.bordo, C.cream], contact: [C.bordoDeep, C.cream]
+    hero: ["#64132F", C.cream], hello: [C.green, C.cream], story: [C.cream, C.bordo], systems: [C.bordo, C.cream], beliefs: [C.green, C.cream],
+    work: [C.cream, C.bordo], explore: [C.green, C.cream], based: [C.bordo, C.cream], about: [C.cream, C.bordo], contact: [C.bordoDeep, C.cream]
   };
 
   const gs = window.gsap;
@@ -210,6 +251,9 @@
   gs.to("#me", { "--breath": 1, duration: 3, ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.to(".dd", { y: "random(-10, 10)", x: "random(-8, 8)", rotation: "random(-12, 12)", duration: "random(2, 4)", ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.set(".pop", { x: 0, y: 0, scale: 0, transformOrigin: "50% 50%" });
+  gs.to(".matatu .leds circle", { opacity: .25, duration: .25, stagger: { each: .08, repeat: -1, yoyo: true } });
+  gs.to(".matatu .notes", { y: -10, opacity: .3, duration: .7, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  gs.to(".matatu svg", { y: -3, duration: .18, ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.to(".wheel", { rotation: 360, svgOrigin: "0 0", transformOrigin: "50% 50%", duration: 1, ease: "none", repeat: -1 });
 
   /* ---------------- MOBILE / REDUCED MOTION: simple flow ---------------- */
@@ -245,12 +289,12 @@
 
   /* 0 · hero: the lid opens, ideas pop out, we fall inside */
   mark("hero", 0);
-  tl.to([".kicker", ".phrase", ".hint", ".aisle", "#fakeCursor", "#dim"], { autoAlpha: 0, y: -30, duration: .35, stagger: .03 }, .05)
+  tl.to([".kicker", ".phrase", ".hero-intro", ".hint", ".aisle", ".stamp"], { autoAlpha: 0, y: -30, duration: .35, stagger: .03 }, .05)
     .to(".name-wrap", { y: -60, autoAlpha: 0, duration: .5 }, .35)
 ;
   $$(".pop").forEach((p, i) => tl.to(p, { x: +p.dataset.x, y: +p.dataset.y, scale: 1, duration: .45, ease: "back.out(1.7)" }, .3 + i * .05));
-  tl.to("#me", { scale: 10, transformOrigin: "26% 42%", duration: 1.1, ease: "power3.in" }, .95)
-    .to(".halo", { scale: 3, autoAlpha: 0, duration: .8, ease: "power2.in" }, .9)
+  tl.to("#me", { yPercent: 70, rotate: -6, duration: 1.0, ease: "power3.in" }, .95)
+    .to(".halo", { scale: 4.2, duration: 1.0, ease: "power2.in" }, .9)
     .to(".pop", { scale: 2.4, autoAlpha: 0, duration: .6, stagger: .02 }, 1.1)
     .to("#s-hero .doodles", { autoAlpha: 0, duration: .4 }, .9);
   colour("hello", 1.65);
@@ -266,78 +310,103 @@
   mark("hello", 2.3);
   hide("#s-hello", 3.05);
 
-  /* 2 · I build brands */
-  colour("systems", 3.15);
-  show("#s-systems", 3.3);
-  tl.from(".sys-small .ch", { y: 40, autoAlpha: 0, stagger: .03, duration: .25 }, 3.35)
-    .from(".sys-word", { yPercent: 40, autoAlpha: 0, duration: .35 }, 3.45)
-    .from(".bottle", { y: 120, rotation: 10, autoAlpha: 0, duration: .45, ease: "back.out(1.4)" }, 3.55)
-    .from(".label", { scale: 0, rotation: -8, duration: .35, ease: "back.out(2)" }, 3.85)
-    .from(".label .bar, .label .btn", { scaleX: 0, transformOrigin: "left", stagger: .06, duration: .2 }, 4.05)
-    .from(".sw", { x: 80, autoAlpha: 0, stagger: .06, duration: .25, ease: "back.out(2)" }, 3.95)
-    .from("#s-systems .cap", { y: 24, autoAlpha: 0, duration: .25 }, 4.3);
-  mark("systems", 3.9);
-  hide("#s-systems", 4.95);
+  /* 2 · story */
+  colour("story", 3.15);
+  show("#s-story", 3.3);
+  tl.from(".story-num b", { scale: .3, rotate: -12, autoAlpha: 0, duration: .4, ease: "back.out(1.8)" }, 3.35)
+    .from(".story-num span", { y: 20, autoAlpha: 0, duration: .25 }, 3.55)
+    .from(".story-copy p", { y: 30, autoAlpha: 0, stagger: .12, duration: .3 }, 3.45)
+    .from(".story-kick .ch", { yPercent: 100, autoAlpha: 0, stagger: .005, duration: .2 }, 3.7)
+    .from(".story-kick em", { autoAlpha: 0, scale: .6, duration: .25, ease: "back.out(2)" }, 3.95);
+  mark("story", 4.1);
+  hide("#s-story", 4.85);
 
-  /* 3 · beliefs */
-  colour("beliefs", 5.05);
-  show("#s-beliefs", 5.15, .1);
+  /* 3 · what I do */
+  const tD = 5.0;
+  colour("systems", tD);
+  show("#s-systems", tD + .1);
+  tl.from(".do-small .ch", { y: 30, autoAlpha: 0, stagger: .02, duration: .2 }, tD + .15)
+    .from(".do-title", { yPercent: 30, autoAlpha: 0, duration: .35 }, tD + .25)
+    .from(".do-card", { y: 140, rotate: (i) => [-6, 4, -3, 5][i % 4], autoAlpha: 0, stagger: .12, duration: .45, ease: "back.out(1.4)" }, tD + .45)
+    .from(".do-card li", { scale: 0, autoAlpha: 0, stagger: .01, duration: .12, ease: "back.out(2)" }, tD + .9);
+  mark("systems", tD + 1.0);
+  hide("#s-systems", tD + 1.9);
+
+  /* 4 · the way I think */
+  const tT = tD + 2.05;
+  colour("beliefs", tT);
+  show("#s-beliefs", tT + .1, .1);
   const bA = $(".bl-a"), bB = $$(".bl-b"), bC = $(".bl-c");
-  show(bA, 5.2);
-  tl.from(".bl-years", { scale: .6, autoAlpha: 0, duration: .4, ease: "back.out(1.5)" }, 5.2)
-    .from(".bl-hands .ch", { y: 30, autoAlpha: 0, stagger: .015, duration: .2 }, 5.45);
-  mark("beliefs", 5.5);
-  hide(bA, 6.05, .2);
+  show(bA, tT + .15);
+  tl.from(".bl-hands .ch", { y: 30, autoAlpha: 0, stagger: .015, duration: .2 }, tT + .15)
+    .from(".bl-years", { scale: .8, autoAlpha: 0, duration: .4, ease: "back.out(1.5)" }, tT + .3);
+  mark("beliefs", tT + .45);
+  hide(bA, tT + 1.0, .2);
   bB.forEach((b, i) => {
-    const t0 = 6.25 + i * 1.1;
+    const t0 = tT + 1.2 + i * 1.1;
     show(b, t0, .2);
     tl.fromTo($$(".wd", b), { opacity: .15 }, { opacity: 1, stagger: .05, duration: .08 }, t0 + .1)
       .from($$("p", b), { y: 20, autoAlpha: 0, duration: .2, stagger: .1 }, t0 + .45);
     hide(b, t0 + .95, .15);
   });
-  const tC = 6.25 + bB.length * 1.1;
+  /* 4b · a little more about the work */
+  const tC = tT + 1.2 + bB.length * 1.1;
   show(bC, tC, .2);
-  tl.from(".bl-c .c2 .ch", { yPercent: 100, autoAlpha: 0, stagger: .012, duration: .2 }, tC + .15)
-    .from(".bl-c .c3", { y: 20, autoAlpha: 0, duration: .2 }, tC + .45);
-  hide("#s-beliefs", tC + .95);
+  tl.from(".bl-c .c1", { y: 20, autoAlpha: 0, duration: .2 }, tC + .05)
+    .from(".bl-c .c2 .ch", { yPercent: 100, autoAlpha: 0, stagger: .01, duration: .2 }, tC + .15)
+    .from(".c-copy p", { y: 24, autoAlpha: 0, stagger: .1, duration: .25 }, tC + .45)
+    .from(".c-stat", { scale: .4, rotate: 10, autoAlpha: 0, duration: .4, ease: "back.out(1.8)" }, tC + .55)
+    .from(".bl-c .c3, .bl-c .pill", { y: 20, autoAlpha: 0, stagger: .1, duration: .2 }, tC + .8);
+  mark("process", tC + .85);
+  hide("#s-beliefs", tC + 1.45);
 
-  /* 4 · based in Nairobi */
-  const tB = tC + 1.1;
+  /* 5 · selected work: horizontal track */
+  const tW = tC + 1.6;
+  colour("work", tW);
+  show("#s-work", tW + .05);
+  tl.from("#s-work .work-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, tW + .1)
+    .to("#track", { x: () => -Math.max(0, $("#track").scrollWidth - innerWidth + 40), duration: 3 }, tW + .45);
+  mark("work", tW + .35);
+  hide("#s-work", tW + 3.55);
+
+  /* 6 · explorations: second horizontal track */
+  const tX = tW + 3.7;
+  colour("explore", tX);
+  show("#s-explore", tX + .05);
+  tl.from("#s-explore .work-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, tX + .1)
+    .from(".xcard", { y: 80, rotate: (i) => (i % 2 ? 4 : -4), autoAlpha: 0, stagger: .08, duration: .4, ease: "back.out(1.5)" }, tX + .2)
+    .to("#xtrack", { x: () => -Math.max(0, $("#xtrack").scrollWidth - innerWidth + 40), duration: 2.6 }, tX + .55);
+  mark("explore", tX + .4);
+  hide("#s-explore", tX + 3.25);
+
+  /* 7 · about me: Nairobi */
+  const tB = tX + 3.4;
   colour("based", tB);
   show("#s-based", tB + .05);
-  tl.from(".based-text .ch", { y: 60, autoAlpha: 0, rotate: -6, stagger: .02, duration: .25, ease: "back.out(1.6)" }, tB + .1)
+  tl.from(".based-kick", { y: 20, autoAlpha: 0, duration: .2 }, tB + .05)
+    .from(".based-text .ch", { y: 60, autoAlpha: 0, rotate: -6, stagger: .012, duration: .25, ease: "back.out(1.6)" }, tB + .1)
     .from(".skyline", { yPercent: 40, autoAlpha: 0, duration: .3 }, tB + .1)
     .fromTo("#matatu", { x: () => -innerWidth * .35 }, { x: () => innerWidth * 1.1, duration: 1.6 }, tB + .2)
     .from("#s-based .cap", { y: 20, autoAlpha: 0, duration: .25 }, tB + .5);
   mark("based", tB + .5);
   hide("#s-based", tB + 1.8);
 
-  /* 5 · selected work: horizontal track */
-  const tW = tB + 2.0;
-  colour("work", tW);
-  show("#s-work", tW + .05);
-  tl.from(".work-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, tW + .1)
-    .to("#track", { x: () => -Math.max(0, $("#track").scrollWidth - innerWidth + 40), duration: 3 }, tW + .45);
-  mark("work", tW + .35);
-  hide("#s-work", tW + 3.55);
-
-  /* 6 · about */
-  const tA = tW + 3.75;
+  /* 8 · currently */
+  const tA = tB + 1.95;
   colour("about", tA);
   show("#s-about", tA + .05);
-  tl.from(".st span", { yPercent: 60, autoAlpha: 0, stagger: .1, duration: .3 }, tA + .1)
-    .from(".about-sub, .facts > div", { y: 26, autoAlpha: 0, stagger: .07, duration: .25 }, tA + .4)
-    .from(".tools span", { scale: 0, stagger: .025, duration: .15, ease: "back.out(2)" }, tA + .6)
-    .from(".more .pill", { y: 20, autoAlpha: 0, stagger: .08, duration: .2 }, tA + .8);
+  tl.from(".about-copy p", { y: 30, autoAlpha: 0, stagger: .1, duration: .3 }, tA + .1)
+    .from(".now-h, .facts > div", { x: 40, autoAlpha: 0, stagger: .07, duration: .25 }, tA + .3)
+    .from(".more .pill", { y: 20, autoAlpha: 0, stagger: .08, duration: .2 }, tA + .75);
   mark("about", tA + .45);
   hide("#s-about", tA + 1.4);
 
-  /* 7 · contact */
+  /* 9 · contact */
   const tK = tA + 1.55;
   colour("contact", tK);
   show("#s-contact", tK + .05);
   tl.from(".contact h2 .ch", { yPercent: 100, autoAlpha: 0, stagger: .01, duration: .25 }, tK + .1)
-    .from(".contact .links > *, .contact .pill, .foot", { y: 20, autoAlpha: 0, stagger: .06, duration: .2 }, tK + .4);
+    .from(".contact-sub, .contact-kick, .contact .links > *, .contact .pill, .foot", { y: 20, autoAlpha: 0, stagger: .06, duration: .2 }, tK + .4);
   mark("contact", tK + .6);
   tl.to({}, { duration: .5 }, tK + .9); // little hold at the end
 
@@ -346,13 +415,14 @@
   const spacer = $("#spacer");
   spacer.style.height = (TOTAL * 90 + 100) + "vh";
 
+  window.__J = { labels, TOTAL };
   const head = $("#head");
   let lastScene = "hero";
   const st = ScrollTrigger.create({
     trigger: spacer, start: "top top", end: "bottom bottom", scrub: .6, animation: tl,
     invalidateOnRefresh: true,
     onUpdate: self => {
-      head.style.left = (self.progress * 100) + "%";
+      head.style.top = (self.progress * 100) + "%";
       const t = self.progress * TOTAL;
       let cur = "hero";
       for (const [k, v] of Object.entries(labels)) if (t >= v - .4) cur = k;
@@ -361,11 +431,11 @@
     }
   });
   /* ruler labels */
-  const nice = { hello: "Hello", systems: "Brands", beliefs: "Beliefs", based: "Nairobi", work: "Work", about: "About", contact: "Contact" };
+  const nice = { hello: "Hello", systems: "What I do", beliefs: "Thinking", work: "Work", explore: "Explorations", based: "About", contact: "Contact" };
   Object.entries(nice).forEach(([k, txt]) => {
     const b = document.createElement("button");
     b.dataset.go = k; b.tabIndex = -1; b.textContent = txt;
-    b.style.left = Math.min(97, (labels[k] / TOTAL) * 100) + "%";
+    b.style.top = Math.min(97, (labels[k] / TOTAL) * 100) + "%";
     ruler.appendChild(b);
   });
   const go = name => {
@@ -374,22 +444,15 @@
   };
   document.addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b && labels[b.dataset.go] !== undefined) { e.preventDefault(); go(b.dataset.go); } });
 
-  /* fake collaborator cursor: drags the selection handle, then wanders */
-  const cur = $("#fakeCursor"), wrap = $("#nameWrap");
-  const handle = () => { const r = wrap.getBoundingClientRect(), s = $("#s-hero").getBoundingClientRect(); return { x: r.right - s.left, y: r.bottom - s.top }; };
-  gs.set(cur, { x: innerWidth * .78, y: innerHeight * .55 });
-  const loop = gs.timeline({ repeat: -1, repeatDelay: 1.2, delay: 1.5 });
-  loop.to(cur, { x: () => handle().x - 4, y: () => handle().y - 4, duration: 1.2, ease: "power2.inOut" })
-      .to(sel, { right: -36, bottom: -14, duration: .9, ease: "power1.inOut" })
-      .to(cur, { x: "+=36", y: "+=14", duration: .9, ease: "power1.inOut" }, "<")
-      .to(sel, { right: 0, bottom: 0, duration: .7, ease: "back.out(2)", delay: .4 })
-      .to(cur, { x: () => innerWidth * .2, y: () => innerHeight * .3, duration: 1.6, ease: "power2.inOut" })
-      .to(cur, { x: () => innerWidth * .78, y: () => innerHeight * .55, duration: 1.6, ease: "power2.inOut", delay: .6 });
+  /* crop marks draw in, the stamp spins in like a sticker */
+  gs.from(".crop i", { scale: 0, duration: .6, stagger: .06, ease: "back.out(2)", delay: .9 });
+  gs.from(".stamp", { scale: 0, rotate: -120, duration: .9, ease: "back.out(1.8)", delay: 1.4 });
+  gs.to(".stamp svg", { rotate: 360, duration: 18, ease: "none", repeat: -1 });
 
   /* intro entrance */
   gs.from(["#top", ".kicker", ".name-wrap", ".phrase"], { y: 30, autoAlpha: 0, duration: .9, stagger: .12, ease: "power3.out", delay: .1 });
   gs.from("#me", { yPercent: 40, duration: 1.2, ease: "back.out(1.2)", delay: .3 });
-  gs.from([".aisle", ".hint", "#ruler"], { autoAlpha: 0, y: 20, duration: .6, stagger: .1, delay: 1.1 });
+  gs.from([".hero-intro", ".aisle", ".hint", "#ruler"], { autoAlpha: 0, y: 20, duration: .6, stagger: .1, delay: 1.1 });
 
   addEventListener("resize", () => {
     if (matchMedia("(max-width: 820px)").matches) location.reload();

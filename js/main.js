@@ -19,6 +19,7 @@
     { href: "index.html", label: "Home", key: "home" },
     { href: "work.html", label: "Work", key: "work" },
     { href: "about.html", label: "About", key: "about" },
+    { href: "about.html#services", label: "What I Do", key: "do" },
     { href: "contact.html", label: "Contact", key: "contact" }
   ];
   const navHTML = `
@@ -53,7 +54,7 @@
     <footer class="footer">
       <div class="wrap">
         <div class="footer-chars"><span class="slot">${Ch.spritz()}</span><span class="slot">${Ch.sachi()}</span></div>
-        <h2>Got a brand that needs to fly off the shelf?</h2>
+        <h2>Have an idea? Let's make something of it.</h2>
         <div class="footer-cta">
           <a class="btn" href="contact.html">Start a project</a>
           <button class="btn btn--ghost copy-email" data-email="${S.email}">

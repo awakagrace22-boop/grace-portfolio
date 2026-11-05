@@ -1,6 +1,6 @@
 /* Page-specific rendering from data.js */
 (function () {
-  const S = window.SITE, P = window.PROJECTS, Ch = window.Characters, esc = window.esc;
+  const S = window.SITE, P = window.PROJECTS.concat(window.EXPLORATIONS || []), Ch = window.Characters, esc = window.esc;
   const page = document.body.dataset.page;
   const $ = s => document.querySelector(s);
   const url = p => `project.html?p=${p.slug}`;
@@ -83,7 +83,7 @@
     el.innerHTML = S.services.map((s, i) => `
       <div class="svc-item" data-open="${i === 0}">
         <h3><button aria-expanded="${i === 0}" aria-controls="svc-${i}" id="svc-b-${i}">${esc(s.title)}<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="svc-panel" id="svc-${i}" role="region" aria-labelledby="svc-b-${i}"><div><p>${esc(s.text)}</p></div></div>
+        <div class="svc-panel" id="svc-${i}" role="region" aria-labelledby="svc-b-${i}"><div><p>${esc(s.text)}</p>${s.tags ? `<p class="svc-tags">${s.tags.map(esc).join(" · ")}</p>` : ""}</div></div>
       </div>`).join("");
     el.addEventListener("click", e => {
       const b = e.target.closest("button"); if (!b) return;
@@ -165,12 +165,12 @@
             <dl>
               <div class="row thick"><dt>Brand</dt><dd>${esc(p.brand)}</dd></div>
               <div class="row"><dt>Year</dt><dd>${esc(p.year)}</dd></div>
-              <div class="row"><dt>Category</dt><dd>${esc(p.subtitle)}</dd></div>
+              <div class="row"><dt>Category</dt><dd>${esc(p.subtitle)}</dd></div>${p.kind ? `<div class="row"><dt>Type</dt><dd>${esc(p.kind)}</dd></div>` : ""}
               <div class="row block"><dt>My role</dt><dd>${p.role.map(esc).join(", ")}</dd></div>
               <div class="row block"><dt>Ingredients</dt><dd>${p.elements.map(esc).join(", ")}</dd></div>
               <div class="row block thick"><dt>Tools</dt><dd>${p.tools.map(esc).join(", ")}</dd></div>
             </dl>
-            <p class="made">Designed in ${S.city}, Kenya.</p>
+            <p class="made">Designed in ${S.city}, Kenya.</p>${p.link ? `<p class="made"><a href="${p.link}" target="_blank" rel="noopener">See the original post on LinkedIn</a></p>` : ""}
           </aside>
           <div>
             <div class="story">${story}</div>
@@ -237,7 +237,7 @@
       `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linejoin="round"><path d="M24 12c-5-4-12-4-18-2v28c6-2 13-2 18 2 5-4 12-4 18-2V10c-6-2-13-2-18 2z" fill="#fff"/><path d="M24 12v28"/></svg>`,
       `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 30A13 13 0 1 1 20 9a10 10 0 0 0 14 21z" fill="#F5DABF"/></svg>`
     ];
-    $("#offclock").innerHTML = S.offClock.map((o, i) => `<div class="oc">${icons[i % icons.length]}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></div>`).join("");
+    if ($("#offclock")) $("#offclock").innerHTML = S.offClock.map((o, i) => `<div class="oc">${icons[i % icons.length]}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></div>`).join("");
     $("#tools").innerHTML = S.tools.map(t => `<li>${esc(t)}</li>`).join("");
     $("#edu").innerHTML = S.education.map(e => `<li><strong>${esc(e.title)}</strong><span>${esc(e.place)}, ${esc(e.when)}</span></li>`).join("");
     renderServices();
