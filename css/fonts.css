@@ -1,0 +1,4 @@
+/* Self-hosted fonts */
+@font-face { font-family: "Italiana"; src: url(../assets/fonts/italiana.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Big Shoulders"; src: url(../assets/fonts/big-shoulders.woff2) format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "DM Mono"; src: url(../assets/fonts/dm-mono-400.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
