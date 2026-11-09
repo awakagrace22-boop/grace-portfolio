@@ -12,8 +12,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#6C151E">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/OpenSans-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/Nohemi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -43,6 +43,13 @@
     </div>
   </section>
 
+  <section class="section section--dark about-numbers" aria-label="At a glance">
+    <div class="wrap nums">
+      <div><b class="count" data-to="6" data-suffix="+">6+</b><span>years in creative and communications</span></div>
+      <div><b class="count" data-to="5">5</b><span>consumer brands managed: AMARA, MIADI, SO-SOFT, ACE, Ashanti-Q</span></div>
+      <div><b class="count" data-to="30" data-suffix="+">30+</b><span>creative, packaging and communication projects a year</span></div>
+    </div>
+  </section>
   <section class="section">
     <div class="wrap two-col">
       <h2 class="h-lg">Where I've been</h2>
@@ -64,6 +71,12 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-xl">Capabilities</h2><p>Where design, marketing and communication meet.</p></div>
+      <div class="caps" id="caps"></div>
+    </div>
+  </section>
   <section class="section section--lilac">
     <div class="wrap">
       <div class="sec-head"><h2 class="h-xl">I make ideas work in the real world.</h2><p>What I do</p></div>
@@ -75,10 +88,10 @@
     <div class="wrap two-col">
       <div>
         <h2 class="h-lg" style="margin-bottom:1.6rem">My toolbox</h2>
-        <ul class="stickers" id="tools"></ul>
+        <ul class="toolgroups" id="tools"></ul>
       </div>
       <div>
-        <h2 class="h-lg" style="margin-bottom:1rem">Learning</h2>
+        <h2 class="h-lg" style="margin-bottom:1rem">Education &amp; professional development</h2>
         <ul class="edu" id="edu"></ul>
         <p style="margin-top:2rem"><a class="btn" href="assets/Grace_Awaka_Resume.pdf" download>Download my CV</a></p>
       </div>
@@ -87,6 +100,7 @@
 </main>
 <div id="footer"></div>
 <script src="js/data.js"></script>
+<script src="js/counter.js"></script>
 <script src="js/characters.js"></script>
 <script src="js/main.js"></script>
 <script src="js/pages.js"></script>

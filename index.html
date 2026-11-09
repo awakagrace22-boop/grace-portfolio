@@ -11,8 +11,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#6C151E">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/OpenSans-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/Nohemi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/lucid.css">
 </head>
@@ -55,7 +55,9 @@
       <p class="phrase"><span>Ideas are everywhere.</span> <span>I make something out of them.</span></p>
     </div>
     <div class="hero-intro">
-      <p>I'm a creative professional with a thing for ideas, good design and the stories behind brands. I bring together design, marketing and communications to turn ideas into meaningful visual experiences.</p>
+      <p class="role">Creative &amp; Brand Communications Professional</p>
+      <p class="disciplines">Brand Strategy · Creative Direction · Design · Digital Marketing</p>
+      <p>I build brands, shape campaigns and translate ideas into meaningful visual and digital experiences.</p>
       <div class="hero-btns"><button class="pill" data-go="work">Explore my work</button><button class="pill ghost" data-go="contact">Let's talk</button></div>
     </div>
     <div class="halo" aria-hidden="true"></div>
@@ -65,6 +67,43 @@
       <small>A little imagination.</small><b>A lot of intention.</b>
     </div>
     <div class="hint" aria-hidden="true"><span>Scroll to unpack</span><span class="line"></span></div>
+  </section>
+
+  <!-- IMPACT DASHBOARD -->
+  <section class="layer" id="s-impact" data-scene="impact" aria-labelledby="impact-h">
+    <div class="impact">
+      <div class="impact-head">
+        <p class="eyebrow">Impact snapshot</p>
+        <h2 id="impact-h">Creative work. <em>Measurable impact.</em></h2>
+        <p>Beyond the visuals, here's a snapshot of the reach, engagement and impact behind some of the work I've been part of.</p>
+      </div>
+      <div class="impact-grid">
+        <p class="impact-label il-perf">Performance</p>
+        <p class="impact-label il-exp">Experience</p>
+        <a class="metric metric--feature" href="project.html?p=haco-website">
+          <span class="metric-k">HACO corporate website</span>
+          <b class="count" data-to="22000" data-suffix="+">22,000+</b>
+          <span class="metric-d">website visits in the first month after the redesign launched</span>
+          <span class="metric-cta">View the case study <i aria-hidden="true">→</i></span>
+        </a>
+        <a class="metric metric--perf" href="project.html?p=oud-digital">
+          <span class="metric-k">AMARA OUD launch</span>
+          <b class="count" data-to="2500000" data-suffix="+">2,500,000+</b>
+          <span class="metric-d">views on the AMARA OUD launch campaign</span>
+          <span class="metric-cta">View the campaign <i aria-hidden="true">→</i></span>
+        </a>
+        <div class="metric metric--exp">
+          <span class="metric-k">Consumer brands</span>
+          <b class="count" data-to="5" data-suffix="+">5+</b>
+          <span class="metric-d">AMARA, MIADI, SO-SOFT, ACE and Ashanti-Q</span>
+        </div>
+        <div class="metric metric--exp">
+          <span class="metric-k">Years</span>
+          <b class="count" data-to="6" data-suffix="+">6+</b>
+          <span class="metric-d">of creative and communications experience</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- HELLO -->
@@ -84,7 +123,7 @@
   <!-- STORY -->
   <section class="layer" id="s-story" data-scene="story" aria-label="About my work">
     <div class="story-grid">
-      <div class="story-num"><b>6+</b><span>years where creativity meets business</span></div>
+      <div class="story-num"><b class="count" data-to="6" data-suffix="+">6+</b><span>years where creativity meets business</span></div>
       <div class="story-copy">
         <p class="story-lead">For over six years, I've been exploring the space where creativity meets business.</p>
         <p>From building brand identities and designing packaging to developing campaigns, creating content and shaping communications, I enjoy taking an idea from that initial spark to something people can actually see, experience and connect with.</p>
@@ -141,7 +180,7 @@
           <p>Over the years, I've worked on brand renovations, product launches, packaging systems, digital campaigns and communications projects across different audiences and platforms.</p>
           <p>I've seen ideas evolve from rough sketches and creative concepts into physical products, live campaigns and digital conversations.</p>
         </div>
-        <div class="c-stat"><b>2.5M+</b><span>views on one AMARA campaign</span></div>
+        <div class="c-stat"><b class="count" data-to="2.5" data-decimals="1" data-suffix="M+">2.5M+</b><span>views on one AMARA campaign</span></div>
       </div>
       <p class="c3">But the numbers are only part of the story. I'm equally interested in the thinking, collaboration and creative decisions that get an idea there.</p>
       <button class="pill" data-go="work">Explore selected projects</button>
@@ -243,6 +282,7 @@
 <div class="view-bubble" id="viewBubble" aria-hidden="true">View<br>case</div>
 
 <script src="js/data.js"></script>
+<script src="js/counter.js"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/ScrollToPlugin.min.js"></script>

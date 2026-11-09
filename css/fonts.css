@@ -1,14 +1,13 @@
-/* Fonts
-   Open Sans (display) by Steve Matteson: SIL Open Font License, free for commercial and web use.
-   Nohemi (text) by Rajesh Rajput: free for personal and commercial use. */
-@font-face { font-family: "Open Sans"; src: url(../assets/fonts/OpenSans-300.woff2) format("woff2"); font-weight: 300; font-display: swap; }
-@font-face { font-family: "Open Sans"; src: url(../assets/fonts/OpenSans-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Open Sans"; src: url(../assets/fonts/OpenSans-400i.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Open Sans"; src: url(../assets/fonts/OpenSans-600.woff2) format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Open Sans"; src: url(../assets/fonts/OpenSans-700.woff2) format("woff2"); font-weight: 700; font-display: swap; }
-@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Light.woff2) format("woff2"); font-weight: 300; font-display: swap; }
-@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Medium.woff2) format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-SemiBold.woff2) format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Nohemi"; src: url(../assets/fonts/Nohemi-Bold.woff2) format("woff2"); font-weight: 700 900; font-display: swap; }
+/* Fonts (all SIL Open Font License: free for commercial and web use)
+   Space Grotesk (display) by Florian Karsten · Inter (text) by Rasmus Andersson */
+@font-face { font-family: "Space Grotesk"; src: url(../assets/fonts/SpaceGrotesk-300.woff2) format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url(../assets/fonts/SpaceGrotesk-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url(../assets/fonts/SpaceGrotesk-500.woff2) format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url(../assets/fonts/SpaceGrotesk-600.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url(../assets/fonts/SpaceGrotesk-700.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../assets/fonts/Inter-400.woff2) format("woff2"); font-weight: 300 400; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../assets/fonts/Inter-500.woff2) format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../assets/fonts/Inter-600.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../assets/fonts/Inter-700.woff2) format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(../assets/fonts/Inter-800.woff2) format("woff2"); font-weight: 800 900; font-display: swap; }
 @font-face { font-family: "DM Mono"; src: url(../assets/fonts/dm-mono-400.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }

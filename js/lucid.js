@@ -12,7 +12,7 @@
   const FLOW = reduce || small;
   if (FLOW) html.classList.add("flow");
 
-  const C = { bordo: "#6C151E", bordoDeep: "#4A0E14", ink: "#1A0508", green: "#0F3D3A", greenDeep: "#0A2B29", cream: "#F5DABF", cream2: "#FBEBDA", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#2F6B62" };
+  const C = { bordo: "#6D2038", bordoDeep: "#4E1628", ink: "#191719", green: "#C77B68", greenDeep: "#0F0E0F", cream: "#F7F4F1", cream2: "#FFFFFF", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#C77B68", rose: "#C77B68", taupe: "#D8C5B7", stone: "#E9E4E1", black: "#191719" };
 
   /* ---------------- Grace, the character ---------------- */
   const EYES = {"w":1115,"h":1041,"eyes":{"gl":{"clip":[[364,534],[367,533],[371,532],[388,528],[401,525],[406,524],[434,522],[435,522],[438,523],[440,524],[446,528],[447,529],[449,532],[453,540],[454,543],[454,548],[453,550],[452,551],[437,556],[421,561],[417,562],[412,563],[391,563],[386,562],[383,561],[378,559],[376,558],[358,546],[357,545],[357,543],[358,541],[363,535]],"p":[424.5,538.4],"r":21.9,"c":[408.0,542.8]},"gr":{"clip":[[526,519],[526,509],[527,503],[529,497],[535,485],[540,480],[543,478],[558,470],[572,463],[575,462],[590,460],[590,491],[589,495],[588,497],[570,509],[558,515],[552,517],[548,518],[543,519]],"p":[579.9,479.3],"r":20.8,"c":[559.7,491.4]},"cl":{"clip":[[341,218],[338,212],[337,207],[337,200],[338,195],[342,187],[344,185],[347,183],[349,182],[355,180],[360,179],[365,179],[371,180],[375,181],[389,185],[391,187],[393,191],[394,194],[395,198],[395,207],[394,211],[393,212],[381,220],[375,223],[372,224],[368,225],[354,225],[350,224],[344,221]],"p":[385.7,198.9],"r":17.6,"c":[365.29999999999995,202.1]},"cr":{"clip":[[451,164],[451,149],[452,145],[455,139],[457,137],[460,135],[465,133],[470,132],[475,132],[479,133],[497,139],[498,140],[501,146],[502,149],[502,163],[501,167],[498,169],[490,174],[480,179],[475,180],[468,180],[464,179],[461,178],[457,176],[456,175],[452,167]],"p":[493.5,153.1],"r":17.7,"c":[475.6,155.9]}}};
@@ -49,8 +49,8 @@
   const MATATU = `
   <svg viewBox="0 0 400 200" aria-hidden="true">
     <defs>
-      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#FF3D8B"/><stop offset=".35" stop-color="#FFB627"/><stop offset=".7" stop-color="#22D1C3"/><stop offset="1" stop-color="#7B4DFF"/></linearGradient>
-      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#C77DFF" stop-opacity=".9"/><stop offset="1" stop-color="#C77DFF" stop-opacity="0"/></radialGradient>
+      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#6D2038"/><stop offset=".45" stop-color="#C77B68"/><stop offset=".8" stop-color="#D8C5B7"/><stop offset="1" stop-color="#F7F4F1"/></linearGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#C77B68" stop-opacity=".9"/><stop offset="1" stop-color="#C77B68" stop-opacity="0"/></radialGradient>
       <clipPath id="bodyclip"><path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z"/></clipPath>
     </defs>
     <ellipse class="underglow" cx="200" cy="176" rx="190" ry="16" fill="url(#glow)"/>
@@ -63,31 +63,31 @@
     <g clip-path="url(#bodyclip)">
       <!-- graffiti art -->
       <path d="M10 120 Q60 90 110 118 T210 112 T310 120 T400 108 V160 H10Z" fill="${C.ink}" opacity=".9"/>
-      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#FFE14D" stroke-width="4"/>
-      <g fill="#FFE14D" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
-      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#FFE14D" opacity=".85"/>
+      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#F7F4F1" stroke-width="4"/>
+      <g fill="#F7F4F1" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
+      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#F7F4F1" opacity=".85"/>
       <path d="M118 84 q8 -18 22 -6 q14 -16 20 6" fill="none" stroke="#fff" stroke-width="3" opacity=".7"/>
     </g>
     <path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
     <!-- tinted windows -->
-    <g fill="#140A18" stroke="${C.ink}" stroke-width="4">
+    <g fill="#191719" stroke="${C.ink}" stroke-width="4">
       <rect x="36" y="42" width="56" height="40" rx="8"/><rect x="100" y="42" width="56" height="40" rx="8"/><rect x="164" y="42" width="56" height="40" rx="8"/><rect x="228" y="42" width="56" height="40" rx="8"/>
       <path d="M294 42 H320 Q340 42 348 62 L356 82 H294 Z"/>
     </g>
     <g fill="none" stroke="#fff" stroke-width="3" opacity=".35"><path d="M44 74 L62 48"/><path d="M108 74 L126 48"/><path d="M172 74 L190 48"/><path d="M236 74 L254 48"/></g>
     <!-- route board -->
-    <rect x="298" y="46" width="44" height="18" rx="3" fill="#FFE14D" stroke="${C.ink}" stroke-width="2.5"/>
-    <text x="320" y="60" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="13" fill="${C.ink}">45</text>
+    <rect x="298" y="46" width="44" height="18" rx="3" fill="#F7F4F1" stroke="${C.ink}" stroke-width="2.5"/>
+    <text x="320" y="60" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="13" fill="${C.ink}">45</text>
     <!-- side lettering -->
-    <text x="164" y="106" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="20" fill="#fff" stroke="${C.ink}" stroke-width="4" paint-order="stroke" letter-spacing="1" transform="rotate(-3 164 100)">GITHURAI 45</text>
-    <text x="300" y="120" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}" letter-spacing="1">GRACE ON BOARD</text>
+    <text x="164" y="106" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="20" fill="#fff" stroke="${C.ink}" stroke-width="4" paint-order="stroke" letter-spacing="1" transform="rotate(-3 164 100)">GITHURAI 45</text>
+    <text x="300" y="120" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}" letter-spacing="1">GRACE ON BOARD</text>
     <!-- lights -->
-    <circle cx="372" cy="94" r="7" fill="#FFF3B0" stroke="${C.ink}" stroke-width="3"/>
-    <rect x="20" y="96" width="8" height="18" rx="2" fill="#FF2E4D" stroke="${C.ink}" stroke-width="2"/>
-    <g class="leds"><circle cx="40" cy="34" r="3" fill="#22D1C3"/><circle cx="90" cy="34" r="3" fill="#FF3D8B"/><circle cx="140" cy="34" r="3" fill="#FFE14D"/><circle cx="190" cy="34" r="3" fill="#22D1C3"/><circle cx="240" cy="34" r="3" fill="#FF3D8B"/><circle cx="290" cy="34" r="3" fill="#FFE14D"/></g>
+    <circle cx="372" cy="94" r="7" fill="#F7F4F1" stroke="${C.ink}" stroke-width="3"/>
+    <rect x="20" y="96" width="8" height="18" rx="2" fill="#C77B68" stroke="${C.ink}" stroke-width="2"/>
+    <g class="leds"><circle cx="40" cy="34" r="3" fill="#D8C5B7"/><circle cx="90" cy="34" r="3" fill="#C77B68"/><circle cx="140" cy="34" r="3" fill="#F7F4F1"/><circle cx="190" cy="34" r="3" fill="#D8C5B7"/><circle cx="240" cy="34" r="3" fill="#C77B68"/><circle cx="290" cy="34" r="3" fill="#F7F4F1"/></g>
     <!-- plate -->
-    <rect x="336" y="134" width="40" height="14" rx="2" fill="#FFE14D" stroke="${C.ink}" stroke-width="2"/>
-    <text x="356" y="145" text-anchor="middle" font-family="Nohemi, Arial, sans-serif" font-weight="900" font-size="9" fill="${C.ink}">KGA 45G</text>
+    <rect x="336" y="134" width="40" height="14" rx="2" fill="#F7F4F1" stroke="${C.ink}" stroke-width="2"/>
+    <text x="356" y="145" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="9" fill="${C.ink}">KGA 45G</text>
     <!-- chrome rims -->
     <g class="wheel"><circle cx="88" cy="158" r="27" fill="${C.ink}"/><circle cx="88" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M88 142 V174 M72 158 H104 M77 147 L99 169 M99 147 L77 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="88" cy="158" r="4" fill="${C.ink}"/></g>
     <g class="wheel"><circle cx="310" cy="158" r="27" fill="${C.ink}"/><circle cx="310" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M310 142 V174 M294 158 H326 M299 147 L321 169 M321 147 L299 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="310" cy="158" r="4" fill="${C.ink}"/></g>
@@ -117,7 +117,7 @@
   /* ---------------- content from data.js ---------------- */
   const imgSrc = (u, w) => (/framerusercontent\.com/.test(u) ? u.split("?")[0] + "?scale-down-to=" + (w || 1024) : u);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  $("#track").insertAdjacentHTML("beforeend", P.filter(p => p.featured).slice(0, 6).map(p => `
+  $("#track").insertAdjacentHTML("beforeend", P.filter(p => p.featured).slice(0, 8).map(p => `
     <a class="proj" href="project.html?p=${p.slug}">
       <div class="label2"><span>${esc(p.title)}</span><em>${esc(p.subtitle)}</em></div>
       <div class="cover" style="--c:${p.color}">${p.images.length
@@ -238,8 +238,8 @@
 
   /* ---------------- per-scene colours ---------------- */
   const SCENES = {
-    hero: ["#64132F", C.cream], hello: [C.green, C.cream], story: [C.cream, C.bordo], systems: [C.bordo, C.cream], beliefs: [C.green, C.cream],
-    work: [C.cream, C.bordo], explore: [C.green, C.cream], based: [C.bordo, C.cream], about: [C.cream, C.bordo], contact: [C.bordoDeep, C.cream]
+    hero: [C.bordo, C.cream], impact: [C.black, C.cream], hello: [C.cream, C.black], story: [C.stone, C.black], systems: [C.cream, C.black], beliefs: [C.black, C.cream],
+    work: [C.cream, C.black], explore: [C.black, C.cream], based: [C.bordo, C.cream], about: [C.cream, C.black], contact: [C.black, C.cream]
   };
 
   const gs = window.gsap;
@@ -266,6 +266,7 @@
       $$(".reveal").forEach(el => io.observe(el));
     }
     $$("[data-go]").forEach(b => b.addEventListener("click", () => $("#s-" + b.dataset.go).scrollIntoView({ behavior: "smooth" })));
+    Counter.watch(document);
     return;
   }
 
@@ -410,6 +411,24 @@
   mark("contact", tK + .6);
   tl.to({}, { duration: .5 }, tK + .9); // little hold at the end
 
+  /* impact dashboard: slot it in right after the hero by pushing everything else back */
+  const IMP = 1.75;
+  tl.shiftChildren(IMP, true, 1.6);
+  Object.keys(labels).forEach(k => { if (labels[k] >= 1.6) labels[k] += IMP; });
+  $$(".count").forEach(Counter.prime);
+  const runIn = (sel, at) => tl.call(() => $$(sel).forEach(Counter.run), null, at);
+  colour("impact", 1.65);
+  hide("#s-hero", 1.85, .2);
+  show("#s-impact", 1.8, .2);
+  tl.from(".impact-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, 1.85)
+    .from(".impact-label", { autoAlpha: 0, duration: .2 }, 2.05)
+    .from(".metric", { y: 60, autoAlpha: 0, stagger: .07, duration: .35, ease: "power3.out" }, 2.05);
+  runIn("#s-impact .count", 2.15);
+  mark("impact", 2.45);
+  hide("#s-impact", 3.15);
+  runIn("#s-story .count", labels.story - .2);
+  runIn(".c-stat .count", labels.process - .3);
+
   /* scroll length: about one screen per timeline unit */
   const TOTAL = tl.duration();
   const spacer = $("#spacer");
@@ -431,7 +450,7 @@
     }
   });
   /* ruler labels */
-  const nice = { hello: "Hello", systems: "What I do", beliefs: "Thinking", work: "Work", explore: "Explorations", based: "About", contact: "Contact" };
+  const nice = { impact: "Impact", hello: "Hello", systems: "What I do", beliefs: "Thinking", work: "Work", explore: "Explorations", based: "About", contact: "Contact" };
   Object.entries(nice).forEach(([k, txt]) => {
     const b = document.createElement("button");
     b.dataset.go = k; b.tabIndex = -1; b.textContent = txt;

@@ -54,18 +54,32 @@ window.SITE = {
   ],
 
   experience: [
-    { years: "2020 – now", title: "Brand & Communications Designer", place: "HACO Industries Kenya", text: "Brand, packaging, campaigns and digital for Amara, Miadi, SoSoft, ACE, Ashanti-Q and the HACO corporate brand." },
-    { years: "2018 – 2019", title: "Graphic Design Intern", place: "HACO Industries Kenya", text: "Social content, print layouts, image editing and file prep for the brand and marketing teams." },
-    { years: "2016 – 2019", title: "Graphic design training", place: "Nairobits School of Digital Design", text: "Certificate and then Diploma in Graphic Design, plus a certificate in internet research." }
+    { years: "Jan 2020 – present", title: "Brand & Communications Designer", place: "HACO Industries Kenya Ltd, Nairobi",
+      text: "Brand, packaging, campaigns, digital and corporate communication for AMARA, MIADI, SO-SOFT, ACE, Ashanti-Q and the HACO corporate brand.",
+      points: ["Led the HACO website revamp from ideation to launch execution: 22,000+ visits in its first 30 days", "Digital execution of the AMARA OUD launch: 2.5M+ views", "Packaging design and renovation across homecare, skincare and haircare, including ACE Bleach, the AMARA Handwash revamp and MIADI styling products", "Visual identity systems and brand guidelines for five brands", "Corporate materials: the HACO Catalogue, TuQio newsletters, board presentations and brochures", "Briefing and coordinating external creative and digital agencies"] },
+    { years: "Mar 2018 – Dec 2019", title: "Graphic Design Intern", place: "HACO Industries Kenya Ltd, Nairobi",
+      text: "Social content, marketing materials, print layouts, image editing and file preparation for the brand and marketing teams.", points: [] }
+  ],
+  capabilities: [
+    { title: "Creative", items: ["Brand identity", "Packaging design", "Creative direction", "Campaign development", "Art direction", "3D product visualisation"] },
+    { title: "Marketing & communications", items: ["Social media and community management", "Digital campaign execution", "Content storytelling", "Corporate and internal communication", "Performance monitoring with Meta Insights, Google Analytics and Search Console"] },
+    { title: "Delivery", items: ["Product development support", "Agency briefing and management", "Creative quality control", "Brand governance", "Cross-functional stakeholder coordination"] }
+  ],
+  toolGroups: [
+    { title: "Design & production", items: ["Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Lightroom", "Canva", "CapCut"] },
+    { title: "Marketing & analytics", items: ["Meta Business Suite", "Meta Ads Manager", "Google Analytics", "Search Console", "Google Business Profile"] },
+    { title: "Workflow", items: ["Notion", "Trello", "Microsoft Office", "Google Workspace"] }
   ],
 
   education: [
-    { title: "Diploma in Digital Marketing", place: "Zetech University", when: "2026 – present" },
+    { title: "Diploma in Digital Marketing", place: "Zetech University", when: "Jan 2026 – present", status: "In progress" },
     { title: "Certificate in Digital Marketing", place: "Zetech University", when: "2025" },
     { title: "Digital Marketing Masterclass", place: "Strathmore Business School", when: "2025" },
-    { title: "Diploma in Graphic Design", place: "Nairobits", when: "2018 – 2019" },
-    { title: "Fundamentals of Digital Marketing", place: "Google", when: "Certified" },
-    { title: "Meta Blueprint", place: "Meta", when: "Certified" }
+    { title: "Diploma in Graphic Design", place: "Nairobits School of Digital Design and ICT", when: "2018 – 2019" },
+    { title: "Certificate in Internet Research", place: "Nairobits School of Digital Design and ICT", when: "2017" },
+    { title: "Certificate in Graphic Design", place: "Nairobits School of Digital Design", when: "2016" },
+    { title: "Fundamentals of Digital Marketing", place: "Google", when: "Certification" },
+    { title: "Meta Blueprint", place: "Meta", when: "Certification" }
   ],
 
   tools: ["Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Lightroom", "Canva", "CapCut", "Meta Business Suite", "Meta Ads Manager", "Google Analytics", "Search Console", "Notion", "Trello"],
@@ -81,15 +95,62 @@ window.SITE = {
 /* Shared Framer image prefix, just to keep the list short */
 const F = "https://framerusercontent.com/images/";
 
+const I = "assets/images/projects/";
+const HW = "assets/images/haco-web/";
+
 window.PROJECTS = [
+  {
+    slug: "haco-website",
+    title: "HACO Industries — Corporate Website Redesign",
+    subtitle: "Corporate website redesign",
+    brand: "HACO Industries",
+    year: "2026",
+    category: "Digital & Social Media",
+    kind: "Digital Experience · Corporate Branding · UX/UI",
+    color: "#191719",
+    featured: true,
+    tagline: "A corporate home for a pan-African manufacturer: its story, its brands and the people it wants to reach, in one clear structure.",
+    role: ["Led the revamp from ideation to launch execution", "Content structure and brand presentation", "Launch"],
+    tools: ["Google Analytics", "Search Console", "Photoshop", "Illustrator"],
+    elements: ["Information architecture", "Brand portfolio pages", "Corporate storytelling", "Launch"],
+    liveUrl: "https://www.haco.africa/",
+    overview: "The corporate website for HACO Industries, the Nairobi-based maker of AMARA, MIADI, SO-SOFT, ACE, Ashanti-Q and HACO Plastics. The revamped site at haco.africa tells the group's story, presents the brand portfolio by category and gives partners, talent and press their own routes in.",
+    stats: [{ value: "22,000+", label: "website visits in the first 30 days after launch" }],
+    images: [HW + "desktop-home0.webp"],
+    caseStudy: {
+      background: "HACO sells across East, Central and West Africa, and its website has to work for very different visitors at once: shoppers looking for a brand, partners and distributors, job seekers, journalists and the wider business community. The revamp brought the corporate story and the consumer brands under one roof.",
+      objectives: ["Present HACO as a pan-African manufacturer with a heritage to be proud of", "Make every brand easy to find, grouped the way people shop: skin care, hair care, home care", "Give partners, talent and press a clear, direct route to what they need", "Keep the HACO identity, its black and gold, consistent from the first screen to the footer"],
+      approach: ["Start from the audiences, then shape the navigation around the questions each one arrives with.", "Lead the homepage with stories rather than a static banner: heritage, the African standard, the solar-powered factory, awards and international press.", "Organise brands by category so a visitor can move from the group to a single product family in two clicks.", "Keep corporate content (story, founder's legacy, leadership, awards, sustainability) in one About section."],
+      role: "I led the HACO website revamp from ideation to launch execution: shaping the structure and content, steering how the brands and the corporate story are presented, coordinating stakeholders and seeing it through to launch. The site was built and coded by the web development team; I did not write its code.",
+      ia: [
+        { label: "Home" },
+        { label: "About Us", children: ["Our Story", "Our Founder's Legacy", "Advisory Board", "Executive Team", "Awards and Recognition"] },
+        { label: "Our Brands", children: ["Skin Care: Amara", "Home Care: ACE, SoSoft, HACO Plastics", "Hair Care: Ashanti-Q, Miadi"] },
+        { label: "News & Press" }, { label: "Careers" }, { label: "Sustainability" }, { label: "The MD's Lens" }, { label: "Contact Us" }, { label: "Become a Partner" }
+      ],
+      journeys: [
+        { who: "A shopper", path: ["Home", "Our Brands", "Skin Care", "Amara"] },
+        { who: "A distributor", path: ["Home", "Become a Partner", "Contact Us"] },
+        { who: "A job seeker", path: ["Home", "Careers"] },
+        { who: "A journalist", path: ["Home", "News & Press", "The MD's Lens"] }
+      ],
+      homeOrder: ["Navigation with the HACO crest and a one-line brand promise", "Hero stories slider: five rotating stories with a clear call to explore the brands", "Key figures and the African footprint, country by country", "Crafting Excellence Since Day One: the heritage story", "Our Brand Portfolio: skin care, hair care and home care", "Become a partner", "Footer with customer service, quick links and every brand's socials"],
+      screens: [
+        { src: HW + "desktop-home0.webp", device: "desktop", caption: "Homepage: navigation, brand promise strip and the hero story slider", pins: [[50, 15, "Primary navigation"], [62, 22.5, "Brand promise strip"], [36, 47, "Hero story"], [18, 77, "Call to explore the brands"], [50, 90, "Five rotating stories"]] },
+        { src: HW + "desktop-brands0.webp", device: "desktop", caption: "Homepage: the brand portfolio, grouped by category", pins: [[50, 10, "Portfolio introduction"], [8, 58, "Category tiles"], [33, 97, "A direct route to each brand"]] }
+      ],
+      mobile: [],
+      results: "The new site launched in 2026 and recorded more than 22,000 visits in its first 30 days."
+    }
+  },
   {
     slug: "ace-bleach",
     title: "ACE Bleach",
     subtitle: "Product packaging",
     brand: "ACE",
     year: "2025",
-    category: "Packaging",
-    color: "#0F3D3A",
+    category: "Brand Identity & Packaging",
+    color: "#191719",
     featured: true,
     tagline: "Bringing a new product into the ACE family without losing it in the crowd.",
     role: ["Creative direction", "Product packaging"],
@@ -108,8 +169,8 @@ window.PROJECTS = [
     subtitle: "Packaging redesign",
     brand: "Amara",
     year: "2026",
-    category: "Packaging",
-    color: "#F5DABF",
+    category: "Brand Identity & Packaging",
+    color: "#E9E4E1",
     featured: true,
     tagline: "Giving an existing range a fresher, more cohesive presence.",
     role: ["Creative direction", "Visual storytelling"],
@@ -128,8 +189,8 @@ window.PROJECTS = [
     subtitle: "Digital roll-out",
     brand: "Amara",
     year: "2025",
-    category: "Campaign",
-    color: "#6C151E",
+    category: "Campaigns & Creative Direction",
+    color: "#6D2038",
     featured: true,
     tagline: "A premium fragrance launch, built to be seen everywhere at once.",
     role: ["Creative direction", "Digital marketing"],
@@ -148,8 +209,8 @@ window.PROJECTS = [
     subtitle: "Styling range packaging",
     brand: "Miadi",
     year: "2025",
-    category: "Packaging",
-    color: "#E9C2A0",
+    category: "Brand Identity & Packaging",
+    color: "#D8C5B7",
     featured: true,
     tagline: "Giving a familiar haircare product a stronger visual presence.",
     role: ["Creative direction", "Brand design"],
@@ -168,8 +229,8 @@ window.PROJECTS = [
     subtitle: "Market entry",
     brand: "Amara",
     year: "2026",
-    category: "Market entry",
-    color: "#0F3D3A",
+    category: "Campaigns & Creative Direction",
+    color: "#191719",
     featured: true,
     tagline: "Retail and promotional touchpoints introducing Amara to Ghana.",
     role: ["Creative direction", "Art direction"],
@@ -188,8 +249,8 @@ window.PROJECTS = [
     subtitle: "Programme identity",
     brand: "Amara",
     year: "2026",
-    category: "Identity",
-    color: "#F5DABF",
+    category: "Corporate & Brand Communications",
+    color: "#E9E4E1",
     featured: true,
     tagline: "An identity for the people who drive the brand in market.",
     role: ["Creative direction", "Branding"],
@@ -205,53 +266,57 @@ window.PROJECTS = [
   {
     slug: "amara-deodorant",
     title: "Amara Deodorant",
-    subtitle: "Product launch packaging",
+    subtitle: "Deodorant & antiperspirant launch",
     brand: "Amara",
     year: "2025",
-    category: "Packaging",
-    color: "#E9C2A0",
-    featured: false,
+    category: "Brand Identity & Packaging",
+    color: "#D8C5B7",
+    featured: true,
     tagline: "From product positioning to a pack that says it in one glance.",
     role: ["Creative development", "Packaging design"],
     tools: ["Photoshop", "Illustrator"],
-    elements: ["Packaging direction", "Launch communication", "Product mockups"],
+    elements: ["Packaging direction", "Label system across variants", "Product mockups", "Launch communication"],
     overview: "Creative development for the Amara Deodorant & Antiperspirant launch, managed from concept through to commercialisation.",
     challenge: "Translate the product's positioning into packaging direction that works on shelf and in launch communication.",
     solution: "Packaging concepts, mockups and launch materials developed together, so the pack and the campaign tell the same story.",
     result: "",
     stats: [],
-    images: []
+    images: [I + "amara-deo-01.webp", I + "amara-deo-02.webp", I + "amara-deo-03.webp", I + "amara-deo-04.webp"]
   },
   {
     slug: "ace-air-freshener",
     title: "ACE Air Freshener",
-    subtitle: "Product packaging",
+    subtitle: "Product & packaging design",
     brand: "ACE",
     year: "2025",
-    category: "Packaging",
-    color: "#0F3D3A",
-    featured: false,
+    category: "Brand Identity & Packaging",
+    color: "#191719",
+    featured: true,
     tagline: "Taking ACE into a new corner of the home.",
     role: ["Creative direction", "Product packaging"],
     tools: ["Photoshop", "Illustrator"],
-    elements: ["Product packaging", "Variant system", "Brand identity"],
+    elements: ["Product packaging", "Six-fragrance variant system", "Label hierarchy", "Lifestyle mockups"],
     overview: "Packaging for the ACE Air Freshener range, part of extending the ACE brand across new homecare categories.",
     challenge: "Make each fragrance easy to tell apart while keeping the whole range recognisably ACE.",
     solution: "A variant system built on the ACE identity, with colour and hierarchy doing the work of fragrance communication.",
     result: "",
     stats: [],
-    images: []
+    images: [I + "ace-air-01.webp", I + "ace-air-02.webp", I + "ace-air-03.webp"],
+    range: [
+      { src: I + "ace-air-v1.webp", name: "Citrus Rush" }, { src: I + "ace-air-v2.webp", name: "Amber Bloom" }, { src: I + "ace-air-v3.webp", name: "Berry Whisper" },
+      { src: I + "ace-air-v4.webp", name: "Enchanted Forest" }, { src: I + "ace-air-v5.webp", name: "Oud Mystique" }, { src: I + "ace-air-v6.webp", name: "Tropical Allure" }
+    ]
   },
   {
     slug: "tuqio-magazine",
     title: "TuQio Magazine",
-    subtitle: "Editorial design",
+    subtitle: "Internal communications & publishing",
     brand: "HACO",
     year: "2025",
-    category: "Editorial",
-    color: "#6C151E",
-    featured: false,
-    tagline: "The internal newsletter that helps a big company feel like one team.",
+    category: "Corporate & Brand Communications",
+    color: "#6D2038",
+    featured: true,
+    tagline: "HACO's internal magazine: company news, people and stories, designed to be picked up and read.",
     role: ["Editorial design", "Corporate communication"],
     tools: ["InDesign", "Photoshop"],
     elements: ["Editorial layout", "Internal communication", "Photography direction"],
@@ -260,7 +325,7 @@ window.PROJECTS = [
     solution: "A flexible editorial grid and a consistent visual voice that adapts to each issue's stories.",
     result: "",
     stats: [],
-    images: []
+    images: [I + "tuqio-01.webp", I + "tuqio-02.webp", I + "tuqio-03.webp"]
   }
 ];
 
@@ -282,8 +347,8 @@ window.EXPLORATIONS = [
     brand: "BLAIRE",
     year: "2026",
     kind: "Freelance",
-    category: "Exploration",
-    color: "#6C151E",
+    category: "Independent Explorations",
+    color: "#6D2038",
     tagline: "Beauty in its softest form: a skincare brand built on softness, luminosity and sensory storytelling.",
     role: ["Brand identity", "Packaging design", "Campaign art direction"],
     tools: ["Illustrator", "Photoshop", "3D visualisation"],
@@ -303,8 +368,8 @@ window.EXPLORATIONS = [
     brand: "NOCAFF",
     year: "2026",
     kind: "Design challenge",
-    category: "Exploration",
-    color: "#0F3D3A",
+    category: "Independent Explorations",
+    color: "#191719",
     tagline: "All Coffee. No Chaos. Repositioning decaf from the back-up option to a premium lifestyle product.",
     role: ["Brand strategy", "Brand identity", "Packaging design"],
     tools: ["Illustrator", "Photoshop"],
@@ -324,8 +389,8 @@ window.EXPLORATIONS = [
     brand: "Oh Belly",
     year: "2026",
     kind: "DesignerBriefs brief",
-    category: "Exploration",
-    color: "#6C151E",
+    category: "Independent Explorations",
+    color: "#6D2038",
     tagline: "A soda-first identity that communicates feeling before function.",
     role: ["Brand identity", "Packaging identity"],
     tools: ["Illustrator", "Photoshop"],
@@ -345,8 +410,8 @@ window.EXPLORATIONS = [
     brand: "Personal",
     year: "2025",
     kind: "100 Days of Design",
-    category: "Exploration",
-    color: "#0F3D3A",
+    category: "3D & Creative Production",
+    color: "#191719",
     tagline: "Compacts and oils floating in a summer sky: still shots from a 3D beauty project for my 100 Days of Design challenge.",
     role: ["3D design", "Product visualisation"],
     tools: ["Blender", "Photoshop"],
@@ -366,8 +431,8 @@ window.EXPLORATIONS = [
     brand: "Melto",
     year: "2025",
     kind: "100 Days of Design",
-    category: "Exploration",
-    color: "#F5DABF",
+    category: "Independent Explorations",
+    color: "#E9E4E1",
     tagline: "A pre-packed ice cream that skips the fluff and leans into flavour.",
     role: ["Brand identity", "Packaging", "Merch design"],
     tools: ["Illustrator", "Photoshop"],
@@ -387,8 +452,8 @@ window.EXPLORATIONS = [
     brand: "Veloure",
     year: "2024",
     kind: "3D visualisation",
-    category: "Exploration",
-    color: "#0F3D3A",
+    category: "3D & Creative Production",
+    color: "#191719",
     tagline: "A moisturising cream, rendered in 3D and given a backdrop that matches its personality.",
     role: ["3D product visualisation", "Compositing"],
     tools: ["Blender", "Photoshop"],
@@ -402,3 +467,19 @@ window.EXPLORATIONS = [
     images: xs("veloure", 2)
   }
 ];
+
+/* Portfolio categories, in the order they appear on the Work page */
+window.CATEGORIES = [
+  "Brand Identity & Packaging",
+  "Campaigns & Creative Direction",
+  "Digital & Social Media",
+  "Corporate & Brand Communications",
+  "3D & Creative Production",
+  "Independent Explorations"
+];
+
+/* Strongest work first (homepage track and Work page) */
+(function () {
+  const order = ["haco-website", "oud-digital", "ace-air-freshener", "amara-deodorant", "ace-bleach", "amara-handwash", "miadi-sheen-spray", "amara-ghana", "amara-champions", "tuqio-magazine"];
+  window.PROJECTS.sort((a, b) => (order.indexOf(a.slug) + 1 || 99) - (order.indexOf(b.slug) + 1 || 99));
+})();

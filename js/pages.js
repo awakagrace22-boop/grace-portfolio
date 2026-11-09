@@ -96,7 +96,7 @@
   /* ================= WORK ================= */
   if (page === "work") {
     const grid = $("#workGrid"), filters = $("#filters");
-    const cats = ["All", ...new Set(P.map(p => p.category))];
+    const cats = ["All", ...(window.CATEGORIES || []).filter(c => P.some(p => p.category === c)), ...new Set(P.map(p => p.category).filter(c => !(window.CATEGORIES || []).includes(c)))];
     filters.innerHTML = cats.map(c => {
       const n = c === "All" ? P.length : P.filter(p => p.category === c).length;
       return `<button class="chip" aria-pressed="${c === "All"}" data-cat="${esc(c)}">${esc(c)}<sup>${n}</sup></button>`;
@@ -121,6 +121,36 @@
     apply(cats.includes(start) ? start : "All");
   }
 
+  /* ---------- reusable case-study pieces ---------- */
+  function uxFrame(sc, i) {
+    const pins = (sc.pins || []).map((pn, k) => `<button class="pin" style="left:${pn[0]}%;top:${pn[1]}%" aria-expanded="false" aria-label="Detail ${k + 1}: ${esc(pn[2])}"><b>${k + 1}</b><span>${esc(pn[2])}</span></button>`).join("");
+    return `<figure class="ux-frame ux-${sc.device}">
+      <div class="device">${sc.device === "desktop" ? `<div class="chrome"><i></i><i></i><i></i><span>haco.africa</span></div>` : `<div class="notch"></div>`}
+        <div class="screen"><img src="${sc.src}" alt="${esc(sc.caption)}" loading="lazy">${pins}</div></div>
+      <figcaption><b>${String(i + 1).padStart(2, "0")}</b> ${esc(sc.caption)}</figcaption>
+    </figure>`;
+  }
+  function caseStudy(p) {
+    const c = p.caseStudy;
+    const sec = (n, h, body) => `<section class="cs-sec"><span class="cs-n">${n}</span><h2>${h}</h2>${body}</section>`;
+    const list = a => `<ul class="cs-list">${a.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    const ia = `<div class="ia" role="tree" aria-label="Site navigation">${c.ia.map(n => `<div class="ia-node" role="treeitem"><b>${esc(n.label)}</b>${n.children ? `<ul>${n.children.map(ch => `<li>${esc(ch)}</li>`).join("")}</ul>` : ""}</div>`).join("")}</div>`;
+    const journeys = `<div class="journeys">${c.journeys.map(j => `<div class="journey"><span>${esc(j.who)}</span><ol>${j.path.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>`).join("")}</div>`;
+    const order = `<ol class="cs-order">${c.homeOrder.map(x => `<li>${esc(x)}</li>`).join("")}</ol>`;
+    const screens = c.screens.map(uxFrame).join("");
+    const mobile = c.mobile && c.mobile.length ? `<div class="ux-mobiles">${c.mobile.map((m, k) => uxFrame(m, c.screens.length + k)).join("")}</div>` : "";
+    const metric = p.stats.map(s => `<div class="cs-metric">${window.Counter ? Counter.html(s.value) : `<b>${esc(s.value)}</b>`}<span>${esc(s.label)}</span></div>`).join("");
+    return `<div class="case">
+      ${sec("01", "Project overview", `<p>${esc(p.overview)}</p>`)}
+      ${sec("02", "Background and objectives", `<p>${esc(c.background)}</p>${list(c.objectives)}`)}
+      ${sec("03", "Redesign approach", list(c.approach))}
+      ${sec("04", "My role and contribution", `<p>${esc(c.role)}</p>`)}
+      ${sec("05", "UX and information architecture", `<p>The navigation as it stands on the live site: nine top-level routes, with About and Our Brands carrying the depth.</p>${ia}<h3>Four visitors, four routes</h3>${journeys}<h3>How the homepage is ordered</h3>${order}`)}
+      ${sec("06", "Desktop and mobile experience", `<p class="cs-note">Screens captured from the live site, haco.africa, in November 2026 and shown in device frames. Tap a numbered marker for the detail.</p><div class="ux-gallery">${screens}</div>${mobile}`)}
+      ${sec("07", "Launch and results", `<div class="cs-metrics">${metric}</div><p>${esc(c.results)}</p><a class="btn" href="${p.liveUrl}" target="_blank" rel="noopener">Visit haco.africa <span aria-hidden="true">↗</span></a>`)}
+    </div>`;
+  }
+
   /* ================= PROJECT ================= */
   if (page === "project") {
     const slug = new URLSearchParams(location.search).get("p") || location.pathname.split("/").filter(Boolean).pop();
@@ -134,7 +164,7 @@
       return;
     }
     const p = P[i], next = P[(i + 1) % P.length];
-    const dark = ["#6C151E", "#2A070B", "#0F3D3A"].includes(p.color);
+    const dark = ["#6D2038", "#191719", "#6C151E", "#2A070B", "#0F3D3A"].includes(p.color);
     document.title = `${p.title}: ${p.subtitle} | ${S.name}`;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", p.tagline);
@@ -142,7 +172,9 @@
 
     const story = [["Overview", p.overview], ["The challenge", p.challenge], ["What I did", p.solution], ["The result", p.result]]
       .filter(s => s[1]).map(s => `<section><h2>${s[0]}</h2><p>${esc(s[1])}</p></section>`).join("");
-    const stats = p.stats.length ? `<div class="p-stats">${p.stats.map(s => `<div class="p-stat"><strong>${esc(s.value)}</strong><span>${esc(s.label)}</span></div>`).join("")}</div>` : "";
+    const stats = p.stats.length ? `<div class="p-stats">${p.stats.map(s => `<div class="p-stat">${window.Counter ? Counter.html(s.value) : `<strong>${esc(s.value)}</strong>`}<span>${esc(s.label)}</span></div>`).join("")}</div>` : "";
+    const range = p.range ? `<section class="range" aria-label="The range"><h2>The range</h2><p>${p.range.length} variants, one family.</p><div class="range-grid">${p.range.map(v => `<figure><img src="${v.src}" alt="${esc(p.title)}, ${esc(v.name)}" loading="lazy"><figcaption>${esc(v.name)}</figcaption></figure>`).join("")}</div></section>` : "";
+    const cs = p.caseStudy ? caseStudy(p) : "";
     const gallery = p.images.length > 1
       ? `<div class="gallery">${p.images.slice(1).map((src, k) => `<button data-k="${k + 1}" aria-label="Enlarge image ${k + 2} of ${p.images.length}"><img src="${window.imgSrc(src, 1024)}" alt="${esc(p.title)}, image ${k + 2}" loading="lazy" data-slug="${p.slug}" onerror="imgFail(this)"></button>`).join("")}</div>`
       : p.images.length ? "" : `<div class="empty-gallery">${window.charFor(p)}<p>Project images are on their way. In the meantime, ask me about this one and I'll walk you through it.</p><a class="btn" href="contact.html">Ask about this project</a></div>`;
@@ -165,16 +197,18 @@
             <dl>
               <div class="row thick"><dt>Brand</dt><dd>${esc(p.brand)}</dd></div>
               <div class="row"><dt>Year</dt><dd>${esc(p.year)}</dd></div>
-              <div class="row"><dt>Category</dt><dd>${esc(p.subtitle)}</dd></div>${p.kind ? `<div class="row"><dt>Type</dt><dd>${esc(p.kind)}</dd></div>` : ""}
+              <div class="row"><dt>Project</dt><dd>${esc(p.subtitle)}</dd></div>
+              <div class="row"><dt>Category</dt><dd>${esc(p.category)}</dd></div>${p.kind ? `<div class="row"><dt>Type</dt><dd>${esc(p.kind)}</dd></div>` : ""}
               <div class="row block"><dt>My role</dt><dd>${p.role.map(esc).join(", ")}</dd></div>
-              <div class="row block"><dt>Ingredients</dt><dd>${p.elements.map(esc).join(", ")}</dd></div>
+              <div class="row block"><dt>Scope</dt><dd>${p.elements.map(esc).join(", ")}</dd></div>
               <div class="row block thick"><dt>Tools</dt><dd>${p.tools.map(esc).join(", ")}</dd></div>
             </dl>
-            <p class="made">Designed in ${S.city}, Kenya.</p>${p.link ? `<p class="made"><a href="${p.link}" target="_blank" rel="noopener">See the original post on LinkedIn</a></p>` : ""}
+            ${p.liveUrl ? `<a class="btn live" href="${p.liveUrl}" target="_blank" rel="noopener">Visit the live site <span aria-hidden="true">↗</span></a>` : ""}<p class="made">Designed in ${S.city}, Kenya.</p>${p.link ? `<p class="made"><a href="${p.link}" target="_blank" rel="noopener">See the original post on LinkedIn</a></p>` : ""}
           </aside>
           <div>
-            <div class="story">${story}</div>
-            ${stats}
+            ${cs || `<div class="story">${story}</div>`}
+            ${cs ? "" : stats}
+            ${range}
             <div style="margin-top:clamp(3rem,6vw,5rem)">${gallery}</div>
           </div>
         </div>
@@ -189,6 +223,9 @@
         <button class="lb-next" aria-label="Next image">›</button>
         <span class="lb-count"></span>
       </div>`;
+
+    if (window.Counter) Counter.watch(root);
+    root.querySelectorAll(".ux-frame").forEach(f => f.addEventListener("click", e => { const b = e.target.closest(".pin"); if (b) { e.preventDefault(); f.querySelectorAll(".pin").forEach(x => x !== b && x.setAttribute("aria-expanded", "false")); b.setAttribute("aria-expanded", String(b.getAttribute("aria-expanded") !== "true")); } }));
 
     // gallery wipe-in
     const gio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("wipe"); gio.unobserve(e.target); } }), { threshold: .15 });
@@ -230,7 +267,8 @@
   if (page === "about") {
     document.querySelectorAll("[data-char]").forEach(el => { el.innerHTML = Ch[el.dataset.char](); });
     $("#timeline").innerHTML = S.experience.map(x => `
-      <li><span class="when">${esc(x.years)}</span><h3>${esc(x.title)}</h3><div class="where">${esc(x.place)}</div><p>${esc(x.text)}</p></li>`).join("");
+      <li><span class="when">${esc(x.years)}</span><h3>${esc(x.title)}</h3><div class="where">${esc(x.place)}</div><p>${esc(x.text)}</p>${x.points && x.points.length ? `<ul class="xp-points">${x.points.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}</li>`).join("");
+    if ($("#caps")) $("#caps").innerHTML = (S.capabilities || []).map(c => `<div class="cap"><h3>${esc(c.title)}</h3><ul>${c.items.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>`).join("");
     const icons = [
       `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linecap="round"><circle cx="24" cy="30" r="9" fill="#E9C2A0"/><path d="M4 40h40M24 10v5M10 18l3.5 3.5M38 18l-3.5 3.5"/></svg>`,
       `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="3" fill="#fff"/><path d="m11 35 9-11 7 8 4-5 6 8z" fill="#6C151E"/><circle cx="33" cy="16" r="3.5" fill="#F5DABF"/></svg>`,
@@ -238,8 +276,11 @@
       `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 30A13 13 0 1 1 20 9a10 10 0 0 0 14 21z" fill="#F5DABF"/></svg>`
     ];
     if ($("#offclock")) $("#offclock").innerHTML = S.offClock.map((o, i) => `<div class="oc">${icons[i % icons.length]}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></div>`).join("");
-    $("#tools").innerHTML = S.tools.map(t => `<li>${esc(t)}</li>`).join("");
-    $("#edu").innerHTML = S.education.map(e => `<li><strong>${esc(e.title)}</strong><span>${esc(e.place)}, ${esc(e.when)}</span></li>`).join("");
+    $("#tools").innerHTML = S.toolGroups
+      ? S.toolGroups.map(g => `<li class="tg"><h3>${esc(g.title)}</h3><ul>${g.items.map(t => `<li>${esc(t)}</li>`).join("")}</ul></li>`).join("")
+      : S.tools.map(t => `<li>${esc(t)}</li>`).join("");
+    $("#edu").innerHTML = S.education.map(e => `<li><strong>${esc(e.title)}${e.status ? ` <em class="tag-live">${esc(e.status)}</em>` : ""}</strong><span>${esc(e.place)}, ${esc(e.when)}</span></li>`).join("");
+    if (window.Counter) Counter.watch(document);
     renderServices();
   }
 
