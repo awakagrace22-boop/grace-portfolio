@@ -9,6 +9,8 @@
    ========================================================= */
 
 window.SITE = {
+  // Google Analytics 4 measurement ID (looks like "G-XXXXXXXXXX"). Leave empty to switch analytics off.
+  gaId: "G-6B0PZ4VCL2",
   name: "Grace Awaka",
   role: "Brand & Communications Designer",
   city: "Nairobi",

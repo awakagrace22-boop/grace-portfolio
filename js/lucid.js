@@ -446,7 +446,7 @@
       let cur = "hero";
       for (const [k, v] of Object.entries(labels)) if (t >= v - .4) cur = k;
       $$(".ruler button").forEach(b => b.classList.toggle("on", b.dataset.go === cur));
-      if (cur !== lastScene) { sound.blip(440 + Object.keys(labels).indexOf(cur) * 60); lastScene = cur; }
+      if (cur !== lastScene) { sound.blip(440 + Object.keys(labels).indexOf(cur) * 60); lastScene = cur; window.trackSection && window.trackSection(cur); }
     }
   });
   /* ruler labels */
