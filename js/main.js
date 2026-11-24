@@ -26,7 +26,7 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="nav" id="nav">
       <a class="logo" href="index.html" aria-label="${S.name}, home">
-        <span class="logo-mark">${Ch.bottie()}</span><span>grace awaka</span>
+        ${window.AWAKA_SVG || "awaka."}
       </a>
       <nav aria-label="Main"><ul class="nav-links">
         ${links.slice(1).map(l => `<li><a href="${l.href}" ${l.key === page ? 'aria-current="page"' : ""}>${l.label}</a></li>`).join("")}
@@ -52,33 +52,27 @@
   if (footerSlot) {
     footerSlot.outerHTML = `
     <footer class="footer">
-      <div class="wrap">
-        <div class="footer-chars"><span class="slot">${Ch.spritz()}</span><span class="slot">${Ch.sachi()}</span></div>
-        <h2>Have an idea? Let's make something of it.</h2>
-        <div class="footer-cta">
-          <a class="btn" href="contact.html">Start a project</a>
-          <button class="btn btn--ghost copy-email" data-email="${S.email}">
-            <span class="toast" role="status">Copied!</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-            ${S.email}
-          </button>
-        </div>
-        <div class="footer-bottom">
-          <span>© ${new Date().getFullYear()} ${S.name}. Designed and built in ${S.city}.</span>
-          <ul>
-            ${S.socials.map(s => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.label}</a></li>`).join("")}
-            <li><a href="${S.resume}" download>Résumé</a></li>
-          </ul>
-        </div>
+      <svg class="footer-wave" viewBox="0 0 1440 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V12C120 0 240 0 360 12S600 24 720 12 960 0 1080 12 1320 24 1440 12V24Z"/></svg>
+      <div class="wrap footer-in">
+        <a class="footer-logo" href="index.html" aria-label="${S.name}, home">${window.AWAKA_SVG || "awaka."}</a>
+        <a class="footer-cta" href="contact.html">Have an idea? <b>Let's talk</b> <i aria-hidden="true">→</i></a>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="work.html">Work</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+          ${S.socials.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join("")}
+          <a href="${S.resume}" download>CV</a>
+        </nav>
+        <p class="footer-copy">© 2026 ${S.name}. All rights reserved.</p>
+        <button class="footer-top" type="button" aria-label="Back to top">↑</button>
       </div>
     </footer>`;
+    document.querySelector(".footer-top")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }));
   }
 
   /* ---------- CURTAIN (page transitions) ---------- */
   const curtain = document.createElement("div");
   curtain.className = "curtain";
   curtain.setAttribute("aria-hidden", "true");
-  curtain.innerHTML = Ch.bottie();
+  curtain.innerHTML = `<img class="curtain-art" src="assets/images/grace-illustration-sm.webp" alt="" width="480" height="439">`;
   document.body.appendChild(curtain);
 
   const firstVisit = !store.sget("visited");
@@ -110,12 +104,12 @@
     const loader = document.createElement("div");
     loader.className = "loader";
     loader.setAttribute("aria-hidden", "true");
-    loader.innerHTML = `<div class="loader-chars">${Ch.spritz()}${Ch.bottie()}${Ch.sachi()}${Ch.jarra()}</div>
-      <div class="loader-shelf"></div><p>Stocking the shelves <b>0</b>%</p>`;
+    loader.innerHTML = `<div class="loader-art"><img src="assets/images/grace-illustration-sm.webp" alt="" width="480" height="439"></div>
+      <div class="loader-logo">${window.AWAKA_SVG || ""}</div><p>Gathering ideas <b>0</b>%</p>`;
     document.body.appendChild(loader);
     document.documentElement.style.overflow = "hidden";
-    const chars = loader.querySelectorAll(".char"), num = loader.querySelector("b");
-    chars.forEach((c, i) => setTimeout(() => c.classList.add("drop"), 150 + i * 260));
+    const num = loader.querySelector("p b");
+    requestAnimationFrame(() => loader.classList.add("go"));
     const t0 = performance.now(), dur = 1500;
     (function tick(t) {
       const p = Math.min(1, (t - t0) / dur);

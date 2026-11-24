@@ -12,7 +12,7 @@
   const FLOW = reduce || small;
   if (FLOW) html.classList.add("flow");
 
-  const C = { bordo: "#6D2038", bordoDeep: "#4E1628", ink: "#191719", green: "#C77B68", greenDeep: "#0F0E0F", cream: "#F7F4F1", cream2: "#FFFFFF", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#C77B68", rose: "#C77B68", taupe: "#D8C5B7", stone: "#E9E4E1", black: "#191719" };
+  const C = { bordo: "#6D2038", bordoDeep: "#4E1628", ink: "#0D3138", green: "#E0A3AF", greenDeep: "#082429", cream: "#F4EFE7", cream2: "#FFFFFF", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#E0A3AF", rose: "#E0A3AF", taupe: "#B9D0CC", stone: "#E6DED2", black: "#0D3138" };
 
   /* ---------------- Grace, the character ---------------- */
   const EYES = {"w":1115,"h":1041,"eyes":{"gl":{"clip":[[364,534],[367,533],[371,532],[388,528],[401,525],[406,524],[434,522],[435,522],[438,523],[440,524],[446,528],[447,529],[449,532],[453,540],[454,543],[454,548],[453,550],[452,551],[437,556],[421,561],[417,562],[412,563],[391,563],[386,562],[383,561],[378,559],[376,558],[358,546],[357,545],[357,543],[358,541],[363,535]],"p":[424.5,538.4],"r":21.9,"c":[408.0,542.8]},"gr":{"clip":[[526,519],[526,509],[527,503],[529,497],[535,485],[540,480],[543,478],[558,470],[572,463],[575,462],[590,460],[590,491],[589,495],[588,497],[570,509],[558,515],[552,517],[548,518],[543,519]],"p":[579.9,479.3],"r":20.8,"c":[559.7,491.4]},"cl":{"clip":[[341,218],[338,212],[337,207],[337,200],[338,195],[342,187],[344,185],[347,183],[349,182],[355,180],[360,179],[365,179],[371,180],[375,181],[389,185],[391,187],[393,191],[394,194],[395,198],[395,207],[394,211],[393,212],[381,220],[375,223],[372,224],[368,225],[354,225],[350,224],[344,221]],"p":[385.7,198.9],"r":17.6,"c":[365.29999999999995,202.1]},"cr":{"clip":[[451,164],[451,149],[452,145],[455,139],[457,137],[460,135],[465,133],[470,132],[475,132],[479,133],[497,139],[498,140],[501,146],[502,149],[502,163],[501,167],[498,169],[490,174],[480,179],[475,180],[468,180],[464,179],[461,178],[457,176],[456,175],[452,167]],"p":[493.5,153.1],"r":17.7,"c":[475.6,155.9]}}};
@@ -22,10 +22,10 @@
     const out = e.clip.map(([x, y]) => { const dx = x - cx, dy = y - cy, d = Math.hypot(dx, dy) || 1; return [(x + dx / d * 3).toFixed(1), (y + dy / d * 3).toFixed(1)].join(","); }).join(" ");
     return `<clipPath id="clip-${k}"><polygon points="${pts}"/></clipPath>
       <g class="eye-v" data-k="${k}" data-cx="${cx}" data-cy="${cy}" data-px="${e.p[0]}" data-py="${e.p[1]}" data-cat="${k[0] === "c" ? 1 : 0}">
-        <g clip-path="url(#clip-${k})"><circle class="pupil-v" cx="${e.p[0]}" cy="${e.p[1]}" r="${e.r}" fill="#0B0405"/>
+        <g clip-path="url(#clip-${k})"><circle class="pupil-v" cx="${e.p[0]}" cy="${e.p[1]}" r="${e.r}" fill="#061C20"/>
         <circle class="glint" cx="${e.p[0] - e.r * .35}" cy="${e.p[1] - e.r * .38}" r="${e.r * .22}" fill="#F7E4D9" opacity=".9"/></g>
         <polygon class="lid" points="${pts}" fill="#B85D73"/>
-        <polygon points="${out}" fill="none" stroke="#1A070B" stroke-width="7" stroke-linejoin="round"/>
+        <polygon points="${out}" fill="none" stroke="#082429" stroke-width="7" stroke-linejoin="round"/>
       </g>`;
   }).join("");
   const ME = `
@@ -49,8 +49,8 @@
   const MATATU = `
   <svg viewBox="0 0 400 200" aria-hidden="true">
     <defs>
-      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#6D2038"/><stop offset=".45" stop-color="#C77B68"/><stop offset=".8" stop-color="#D8C5B7"/><stop offset="1" stop-color="#F7F4F1"/></linearGradient>
-      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#C77B68" stop-opacity=".9"/><stop offset="1" stop-color="#C77B68" stop-opacity="0"/></radialGradient>
+      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#6D2038"/><stop offset=".45" stop-color="#E0A3AF"/><stop offset=".8" stop-color="#B9D0CC"/><stop offset="1" stop-color="#F4EFE7"/></linearGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E0A3AF" stop-opacity=".9"/><stop offset="1" stop-color="#E0A3AF" stop-opacity="0"/></radialGradient>
       <clipPath id="bodyclip"><path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z"/></clipPath>
     </defs>
     <ellipse class="underglow" cx="200" cy="176" rx="190" ry="16" fill="url(#glow)"/>
@@ -63,30 +63,30 @@
     <g clip-path="url(#bodyclip)">
       <!-- graffiti art -->
       <path d="M10 120 Q60 90 110 118 T210 112 T310 120 T400 108 V160 H10Z" fill="${C.ink}" opacity=".9"/>
-      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#F7F4F1" stroke-width="4"/>
-      <g fill="#F7F4F1" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
-      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#F7F4F1" opacity=".85"/>
+      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#F4EFE7" stroke-width="4"/>
+      <g fill="#F4EFE7" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
+      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#F4EFE7" opacity=".85"/>
       <path d="M118 84 q8 -18 22 -6 q14 -16 20 6" fill="none" stroke="#fff" stroke-width="3" opacity=".7"/>
     </g>
     <path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
     <!-- tinted windows -->
-    <g fill="#191719" stroke="${C.ink}" stroke-width="4">
+    <g fill="#0D3138" stroke="${C.ink}" stroke-width="4">
       <rect x="36" y="42" width="56" height="40" rx="8"/><rect x="100" y="42" width="56" height="40" rx="8"/><rect x="164" y="42" width="56" height="40" rx="8"/><rect x="228" y="42" width="56" height="40" rx="8"/>
       <path d="M294 42 H320 Q340 42 348 62 L356 82 H294 Z"/>
     </g>
     <g fill="none" stroke="#fff" stroke-width="3" opacity=".35"><path d="M44 74 L62 48"/><path d="M108 74 L126 48"/><path d="M172 74 L190 48"/><path d="M236 74 L254 48"/></g>
     <!-- route board -->
-    <rect x="298" y="46" width="44" height="18" rx="3" fill="#F7F4F1" stroke="${C.ink}" stroke-width="2.5"/>
+    <rect x="298" y="46" width="44" height="18" rx="3" fill="#F4EFE7" stroke="${C.ink}" stroke-width="2.5"/>
     <text x="320" y="60" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="13" fill="${C.ink}">45</text>
     <!-- side lettering -->
     <text x="164" y="106" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="20" fill="#fff" stroke="${C.ink}" stroke-width="4" paint-order="stroke" letter-spacing="1" transform="rotate(-3 164 100)">GITHURAI 45</text>
     <text x="300" y="120" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}" letter-spacing="1">GRACE ON BOARD</text>
     <!-- lights -->
-    <circle cx="372" cy="94" r="7" fill="#F7F4F1" stroke="${C.ink}" stroke-width="3"/>
-    <rect x="20" y="96" width="8" height="18" rx="2" fill="#C77B68" stroke="${C.ink}" stroke-width="2"/>
-    <g class="leds"><circle cx="40" cy="34" r="3" fill="#D8C5B7"/><circle cx="90" cy="34" r="3" fill="#C77B68"/><circle cx="140" cy="34" r="3" fill="#F7F4F1"/><circle cx="190" cy="34" r="3" fill="#D8C5B7"/><circle cx="240" cy="34" r="3" fill="#C77B68"/><circle cx="290" cy="34" r="3" fill="#F7F4F1"/></g>
+    <circle cx="372" cy="94" r="7" fill="#F4EFE7" stroke="${C.ink}" stroke-width="3"/>
+    <rect x="20" y="96" width="8" height="18" rx="2" fill="#E0A3AF" stroke="${C.ink}" stroke-width="2"/>
+    <g class="leds"><circle cx="40" cy="34" r="3" fill="#B9D0CC"/><circle cx="90" cy="34" r="3" fill="#E0A3AF"/><circle cx="140" cy="34" r="3" fill="#F4EFE7"/><circle cx="190" cy="34" r="3" fill="#B9D0CC"/><circle cx="240" cy="34" r="3" fill="#E0A3AF"/><circle cx="290" cy="34" r="3" fill="#F4EFE7"/></g>
     <!-- plate -->
-    <rect x="336" y="134" width="40" height="14" rx="2" fill="#F7F4F1" stroke="${C.ink}" stroke-width="2"/>
+    <rect x="336" y="134" width="40" height="14" rx="2" fill="#F4EFE7" stroke="${C.ink}" stroke-width="2"/>
     <text x="356" y="145" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="9" fill="${C.ink}">KGA 45G</text>
     <!-- chrome rims -->
     <g class="wheel"><circle cx="88" cy="158" r="27" fill="${C.ink}"/><circle cx="88" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M88 142 V174 M72 158 H104 M77 147 L99 169 M99 147 L77 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="88" cy="158" r="4" fill="${C.ink}"/></g>
@@ -136,14 +136,8 @@
       <h3>${esc(p.subtitle)}</h3>
       <p>${esc(p.tagline)}</p>
     </a>`).join(""));
-  $("#doGrid").innerHTML = S.services.map((d, i) => `
-    <article class="do-card">
-      <span class="do-n">${String(i + 1).padStart(2, "0")}</span>
-      <h3>${esc(d.title)}</h3>
-      <p>${esc(d.text)}</p>
-      <ul>${(d.tags || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
-    </article>`).join("");
-  $("#yr").textContent = new Date().getFullYear();
+  window.renderStrips($("#doGrid"), "do");
+  // year is fixed in the footer copy (© 2026)
 
   /* ---------------- view bubble over project cards ---------------- */
   const vb = $("#viewBubble");
@@ -244,6 +238,28 @@
 
   const gs = window.gsap;
   if (!gs) return;
+  /* first-visit loader: Grace's illustration + wordmark */
+  const whoEl = $(".who"); if (whoEl && window.AWAKA_SVG) whoEl.innerHTML = window.AWAKA_SVG + '<span class="sr">Grace Awaka</span>';
+  const footLogo = $(".foot-logo"); if (footLogo && window.AWAKA_SVG) footLogo.innerHTML = window.AWAKA_SVG;
+  const seen = (() => { try { return sessionStorage.getItem("seen-loader"); } catch (e) { return "1"; } })();
+  if (!seen && !reduce) {
+    try { sessionStorage.setItem("seen-loader", "1"); } catch (e) {}
+    const L = document.createElement("div");
+    L.className = "loader"; L.setAttribute("aria-hidden", "true");
+    L.innerHTML = `<div class="loader-art"><img src="assets/images/grace-illustration-sm.webp" alt="" width="480" height="439"></div>
+      <div class="loader-logo">${window.AWAKA_SVG || ""}</div><p>Gathering ideas <b>0</b>%</p>`;
+    document.body.appendChild(L);
+    gs.globalTimeline.pause(); html.style.overflow = "hidden";
+    requestAnimationFrame(() => L.classList.add("go"));
+    const num = L.querySelector("p b"), t0 = performance.now(), dur = 1700;
+    (function tick(t) {
+      const p = Math.min(1, Math.max(0, (t - t0) / dur));
+      num.textContent = Math.round(p * 100);
+      if (p < 1) requestAnimationFrame(tick);
+      else setTimeout(() => { L.classList.add("done"); html.style.overflow = ""; gs.globalTimeline.resume(); setTimeout(() => L.remove(), 1000); }, 250);
+    })(t0);
+  }
+
   gs.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   /* hero idle loops (both modes) */
@@ -262,7 +278,7 @@
     if (!reduce) {
       $$(".pop").forEach((p, i) => gs.to(p, { x: +p.dataset.x * .55, y: +p.dataset.y * .5, scale: 1, duration: .8, delay: .9 + i * .08, ease: "back.out(1.6)" }));
       $$(".layer > *, .bl-scene > *").forEach(el => el.classList.add("reveal"));
-      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0, rootMargin: "0px 0px -12% 0px" });
       $$(".reveal").forEach(el => io.observe(el));
     }
     $$("[data-go]").forEach(b => b.addEventListener("click", () => $("#s-" + b.dataset.go).scrollIntoView({ behavior: "smooth" })));
@@ -328,8 +344,7 @@
   show("#s-systems", tD + .1);
   tl.from(".do-small .ch", { y: 30, autoAlpha: 0, stagger: .02, duration: .2 }, tD + .15)
     .from(".do-title", { yPercent: 30, autoAlpha: 0, duration: .35 }, tD + .25)
-    .from(".do-card", { y: 140, rotate: (i) => [-6, 4, -3, 5][i % 4], autoAlpha: 0, stagger: .12, duration: .45, ease: "back.out(1.4)" }, tD + .45)
-    .from(".do-card li", { scale: 0, autoAlpha: 0, stagger: .01, duration: .12, ease: "back.out(2)" }, tD + .9);
+    .from(".strip", { y: 120, autoAlpha: 0, stagger: .1, duration: .45, ease: "back.out(1.3)" }, tD + .45);
   mark("systems", tD + 1.0);
   hide("#s-systems", tD + 1.9);
 
@@ -397,7 +412,7 @@
   colour("about", tA);
   show("#s-about", tA + .05);
   tl.from(".about-copy p", { y: 30, autoAlpha: 0, stagger: .1, duration: .3 }, tA + .1)
-    .from(".now-h, .facts > div", { x: 40, autoAlpha: 0, stagger: .07, duration: .25 }, tA + .3)
+    .from(".now-pass", { y: 40, rotate: 6, autoAlpha: 0, duration: .35 }, tA + .3)
     .from(".more .pill", { y: 20, autoAlpha: 0, stagger: .08, duration: .2 }, tA + .75);
   mark("about", tA + .45);
   hide("#s-about", tA + 1.4);

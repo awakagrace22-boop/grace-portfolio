@@ -80,17 +80,7 @@
   function renderServices() {
     const el = $("#services");
     if (!el) return;
-    el.innerHTML = S.services.map((s, i) => `
-      <div class="svc-item" data-open="${i === 0}">
-        <h3><button aria-expanded="${i === 0}" aria-controls="svc-${i}" id="svc-b-${i}">${esc(s.title)}<span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="svc-panel" id="svc-${i}" role="region" aria-labelledby="svc-b-${i}"><div><p>${esc(s.text)}</p>${s.tags ? `<p class="svc-tags">${s.tags.map(esc).join(" · ")}</p>` : ""}</div></div>
-      </div>`).join("");
-    el.addEventListener("click", e => {
-      const b = e.target.closest("button"); if (!b) return;
-      const item = b.closest(".svc-item"), open = item.dataset.open !== "true";
-      item.dataset.open = open; b.setAttribute("aria-expanded", open);
-      window.Sound && Sound.play("tick");
-    });
+    window.renderStrips(el, "svc");
   }
 
   /* ================= WORK ================= */
@@ -157,14 +147,15 @@
     const i = P.findIndex(p => p.slug === slug);
     const root = $("#project");
     if (i < 0) {
-      root.innerHTML = `<section class="nf"><div>${Ch.sachi({ mood: "sad" })}<h1>Out of stock</h1>
+      root.innerHTML = `<section class="nf"><div><img class="head-art" src="assets/images/grace-illustration-sm.webp" alt="" style="width:clamp(120px,18vw,200px);margin:0 auto 1.4rem">
+<h1>Out of stock</h1>
         <p>There's no project at this address. It may have moved, or the link has a typo.</p>
         <a class="btn" href="work.html">See all projects</a></div></section>`;
       document.title = "Project not found | " + S.name;
       return;
     }
     const p = P[i], next = P[(i + 1) % P.length];
-    const dark = ["#6D2038", "#191719", "#6C151E", "#2A070B", "#0F3D3A"].includes(p.color);
+    const dark = ["#6D2038", "#0D3138", "#6D2038", "#3D1120", "#0F3D3A"].includes(p.color);
     document.title = `${p.title}: ${p.subtitle} | ${S.name}`;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", p.tagline);
@@ -270,10 +261,10 @@
       <li><span class="when">${esc(x.years)}</span><h3>${esc(x.title)}</h3><div class="where">${esc(x.place)}</div><p>${esc(x.text)}</p>${x.points && x.points.length ? `<ul class="xp-points">${x.points.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}</li>`).join("");
     if ($("#caps")) $("#caps").innerHTML = (S.capabilities || []).map(c => `<div class="cap"><h3>${esc(c.title)}</h3><ul>${c.items.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>`).join("");
     const icons = [
-      `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linecap="round"><circle cx="24" cy="30" r="9" fill="#E9C2A0"/><path d="M4 40h40M24 10v5M10 18l3.5 3.5M38 18l-3.5 3.5"/></svg>`,
-      `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="3" fill="#fff"/><path d="m11 35 9-11 7 8 4-5 6 8z" fill="#6C151E"/><circle cx="33" cy="16" r="3.5" fill="#F5DABF"/></svg>`,
-      `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linejoin="round"><path d="M24 12c-5-4-12-4-18-2v28c6-2 13-2 18 2 5-4 12-4 18-2V10c-6-2-13-2-18 2z" fill="#fff"/><path d="M24 12v28"/></svg>`,
-      `<svg viewBox="0 0 48 48" fill="none" stroke="#1A0508" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 30A13 13 0 1 1 20 9a10 10 0 0 0 14 21z" fill="#F5DABF"/></svg>`
+      `<svg viewBox="0 0 48 48" fill="none" stroke="#082429" stroke-width="3.5" stroke-linecap="round"><circle cx="24" cy="30" r="9" fill="#E9C2A0"/><path d="M4 40h40M24 10v5M10 18l3.5 3.5M38 18l-3.5 3.5"/></svg>`,
+      `<svg viewBox="0 0 48 48" fill="none" stroke="#082429" stroke-width="3.5" stroke-linejoin="round"><rect x="7" y="7" width="34" height="34" rx="3" fill="#fff"/><path d="m11 35 9-11 7 8 4-5 6 8z" fill="#6D2038"/><circle cx="33" cy="16" r="3.5" fill="#F5DABF"/></svg>`,
+      `<svg viewBox="0 0 48 48" fill="none" stroke="#082429" stroke-width="3.5" stroke-linejoin="round"><path d="M24 12c-5-4-12-4-18-2v28c6-2 13-2 18 2 5-4 12-4 18-2V10c-6-2-13-2-18 2z" fill="#fff"/><path d="M24 12v28"/></svg>`,
+      `<svg viewBox="0 0 48 48" fill="none" stroke="#082429" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 30A13 13 0 1 1 20 9a10 10 0 0 0 14 21z" fill="#F5DABF"/></svg>`
     ];
     if ($("#offclock")) $("#offclock").innerHTML = S.offClock.map((o, i) => `<div class="oc">${icons[i % icons.length]}<h3>${esc(o.title)}</h3><p>${esc(o.text)}</p></div>`).join("");
     $("#tools").innerHTML = S.toolGroups

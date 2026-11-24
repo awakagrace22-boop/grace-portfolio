@@ -49,11 +49,11 @@
     b.innerHTML = `<p>I use Google Analytics to see how people find and use this site. No ads, no selling data.</p>
       <div><button type="button" data-c="yes">Accept</button><button type="button" data-c="no">Decline</button></div>`;
     const css = document.createElement("style");
-    css.textContent = `.consent{position:fixed;right:16px;bottom:16px;z-index:400;max-width:360px;background:#191719;color:#F7F4F1;border-radius:16px;padding:1rem 1.1rem;font:500 .9rem/1.45 Inter,system-ui,sans-serif;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+    css.textContent = `.consent{position:fixed;right:16px;bottom:16px;z-index:400;max-width:360px;background:#0D3138;color:#F4EFE7;border-radius:16px;padding:1rem 1.1rem;font:500 .9rem/1.45 Inter,system-ui,sans-serif;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
       .consent p{margin:0 0 .8rem}.consent div{display:flex;gap:.5rem}
       .consent button{font:600 .85rem Inter,system-ui,sans-serif;border:0;border-radius:99px;padding:.5rem 1rem;cursor:pointer}
-      .consent [data-c=yes]{background:#6D2038;color:#F7F4F1}.consent [data-c=no]{background:transparent;color:#F7F4F1;box-shadow:inset 0 0 0 1px rgba(247,244,241,.4)}
-      .consent button:focus-visible{outline:2px solid #C77B68;outline-offset:2px}`;
+      .consent [data-c=yes]{background:#6D2038;color:#F4EFE7}.consent [data-c=no]{background:transparent;color:#F4EFE7;box-shadow:inset 0 0 0 1px rgba(244,239,231,.4)}
+      .consent button:focus-visible{outline:2px solid #E0A3AF;outline-offset:2px}`;
     document.head.appendChild(css);
     b.addEventListener("click", e => {
       const c = e.target.closest("[data-c]"); if (!c) return;

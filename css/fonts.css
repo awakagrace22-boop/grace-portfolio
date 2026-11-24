@@ -14,3 +14,5 @@
 /* Script accents for the About collage (OFL) */
 @font-face { font-family: "Mrs Saint Delafield"; src: url(../assets/fonts/MrsSaintDelafield-400.woff2) format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Caveat"; src: url(../assets/fonts/Caveat-600.woff2) format("woff2"); font-weight: 600; font-display: swap; }
+/* Headline display: Anton (OFL) by Vernon Adams, standing in for Glinken */
+@font-face { font-family: "Anton"; src: url(../assets/fonts/Anton-400.woff2) format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
