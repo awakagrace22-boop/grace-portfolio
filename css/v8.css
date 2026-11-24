@@ -264,3 +264,82 @@ html.flow #s-hello .cap { order: 3; }
 .form-done .head-art { width: 140px; height: 140px; object-fit: cover; object-position: 50% 15%; border-radius: 50%; margin: 0 auto 1.2rem; border: 4px solid var(--bur); }
 @media (max-width: 700px) { .page-head > .head-art { width: 78px; bottom: 1.2rem; } }
 .chip { text-align: left; }
+
+/* ---------- Work grid: lead card widens so rows never end on an orphan ---------- */
+@media (min-width: 1101px) {
+  .grid:not(.grid--feature) .card.is-wide { grid-column: span 8; }
+  .grid:not(.grid--feature) .card.is-wide .card-media { aspect-ratio: 16 / 10; }
+  .grid:not(.grid--feature) .card.is-full { grid-column: 1 / -1; }
+  .grid:not(.grid--feature) .card.is-full .card-media { aspect-ratio: 21 / 9; }
+  .card.is-wide .card-info h3, .card.is-full .card-info h3 { font-size: clamp(2rem, 3.2vw, 3rem); }
+}
+.card-info h3 { letter-spacing: .005em; line-height: 1; }
+.card-info p { margin-top: .4rem; font-size: .98rem; }
+
+/* ---------- project page head ---------- */
+.p-eyebrow { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: 1.6rem 0 .8rem; font: 700 .78rem/1.2 var(--sans); text-transform: uppercase; letter-spacing: .14em; color: var(--bur); }
+.p-hero.dark .p-eyebrow { color: var(--bur-tint); }
+.p-eyebrow span + span::before { content: "·"; margin-right: .9rem; opacity: .6; }
+.p-hero h1 { font-size: clamp(3rem, 8.4vw, 8rem); line-height: .95; max-width: 14ch; }
+.p-hero .lede { max-width: 46ch; }
+.facts h2 { font-weight: 600; letter-spacing: -.01em; }
+.facts .made { display: none; }
+.p-cover { border-radius: var(--radius); }
+.p-hero + .section { padding-top: clamp(3.5rem, 7vw, 6rem); }
+.story h2 { font-size: clamp(2rem, 3.2vw, 2.8rem); margin-bottom: .6rem; }
+.story p { font-size: clamp(1.08rem, 1.3vw, 1.22rem); line-height: 1.55; max-width: 52ch; }
+.story section + section { margin-top: 2.2rem; }
+
+/* ---------- mobile detail pass: inner pages ---------- */
+.card img[data-slug="haco-website"] { object-position: left top; }
+@media (max-width: 880px) {
+  #filters { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; margin-inline: calc(var(--pad) * -1); padding: .3rem var(--pad) .9rem; scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 2.4rem), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 2.4rem), transparent); }
+  #filters::-webkit-scrollbar { display: none; }
+  #filters .chip { flex: none; white-space: nowrap; scroll-snap-align: start; }
+  .p-body > .facts { order: 2; }
+  .p-eyebrow { letter-spacing: .1em; gap: .25rem .6rem; }
+  .p-eyebrow span + span::before { margin-right: .6rem; }
+}
+
+/* ---------- laptop range: adapt the pinned journey to any screen ---------- */
+html:not(.flow) .name { font-size: clamp(3rem, min(10.5vw, 15vh), 11rem); }
+html:not(.flow) .me { height: min(66vh, calc(100vh - 360px), 740px); }
+html:not(.flow) .hero-intro { max-width: clamp(24ch, calc(50vw - min(33vh, 360px) - 3rem), 32ch); }
+html:not(.flow) .based-text { font-size: clamp(3rem, min(10vw, 15vh), 10rem); margin-bottom: 32vh; }
+html:not(.flow) .matatu { width: clamp(220px, min(30vw, 44vh), 420px); }
+html:not(.flow) .hi-line { font-size: clamp(3.4rem, min(11vw, 20vh), 11.5rem); }
+html:not(.flow) #s-hello .cap { background: var(--off); padding: .45rem 1.1rem; border-radius: 14px; position: relative; z-index: 3; }
+html:not(.flow) .bl-years { font-size: clamp(4rem, min(16vw, 22vh), 16rem); }
+html:not(.flow) .contact h2 { font-size: clamp(3rem, min(8.4vw, 14vh), 8.4rem); }
+.proj p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 1100px) and (min-width: 821px) {
+  .hero-intro .disciplines { display: none; }
+  .nav { gap: 1.1rem; }
+  .nav button { font-size: .92rem; }
+  .status { font-size: .82rem; }
+}
+@media (max-height: 820px) and (min-width: 821px) {
+  .proj p { -webkit-line-clamp: 2; }
+  #s-about .now-pass { max-width: 360px; padding: 1.7rem 1.2rem .9rem; }
+  #s-about .np-id { padding-bottom: .7rem; }
+  #s-about .np-id img { width: 56px; height: 56px; }
+  #s-about .np-id b { font-size: 1.5rem; }
+  #s-about .np-rows { margin: .7rem 0; gap: .6rem .7rem; }
+  #s-about .np-rows > div:nth-child(4) { display: none; }
+  #s-about .np-foot { display: none; }
+  .strips { height: clamp(320px, 54vh, 520px); }
+  .strip-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip-media img:nth-child(3) { display: none; }
+}
+@media (max-height: 700px) and (min-width: 821px) {
+  .proj p { display: none; }
+  .hero-intro .disciplines { display: none; }
+}
+@media (min-width: 1800px) {
+  .strips { height: min(58vh, 640px); }
+  .now-pass { max-width: 460px; }
+}
+html:not(.flow) #s-hello .cap { color: var(--petrol); opacity: 1; }
+#s-about .more { align-items: center; }
+html.flow #s-hello .doodles, html.flow #s-story .doodles { display: none; }

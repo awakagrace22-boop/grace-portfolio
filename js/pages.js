@@ -101,6 +101,11 @@
         c.classList.remove("pop");
         if (on) { void c.offsetWidth; c.style.animationDelay = (shown++ * 60) + "ms"; c.classList.add("pop"); }
       });
+      // no orphans: the lead card widens so every row of three closes cleanly
+      const vis = [...grid.querySelectorAll(".card:not(.is-out)")];
+      grid.querySelectorAll(".card").forEach(c => c.classList.remove("is-wide", "is-full"));
+      if (vis.length > 1 && vis.length % 3 === 2) vis[0].classList.add("is-wide");
+      if (vis.length > 1 && vis.length % 3 === 1) vis[0].classList.add("is-full");
       $("#workCount").textContent = `${shown} ${shown === 1 ? "project" : "projects"}`;
       const u = new URL(location.href);
       cat === "All" ? u.searchParams.delete("cat") : u.searchParams.set("cat", cat);
@@ -174,6 +179,7 @@
       <header class="p-hero ${dark ? "dark" : ""}" style="--c:${p.color}">
         <div class="wrap">
           <a class="p-back" href="work.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18 9 12l6-6"/></svg>All work</a>
+          <p class="p-eyebrow"><span>${esc(p.subtitle)}</span><span>${esc(p.brand)}</span><span>${esc(p.year)}</span></p>
           <h1>${esc(p.title)}</h1>
           <p class="lede">${esc(p.tagline)}</p>
           <div class="p-cover">${p.images.length

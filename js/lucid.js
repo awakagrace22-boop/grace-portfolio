@@ -270,7 +270,7 @@
   gs.to(".matatu .leds circle", { opacity: .25, duration: .25, stagger: { each: .08, repeat: -1, yoyo: true } });
   gs.to(".matatu .notes", { y: -10, opacity: .3, duration: .7, ease: "sine.inOut", yoyo: true, repeat: -1 });
   gs.to(".matatu svg", { y: -3, duration: .18, ease: "sine.inOut", yoyo: true, repeat: -1 });
-  gs.to(".wheel", { rotation: 360, svgOrigin: "0 0", transformOrigin: "50% 50%", duration: 1, ease: "none", repeat: -1 });
+  $$(".wheel").forEach(w => { const c = w.querySelector("circle"); gs.to(w, { rotation: 360, svgOrigin: `${c.getAttribute("cx")} ${c.getAttribute("cy")}`, duration: 1, ease: "none", repeat: -1 }); });
 
   /* ---------------- MOBILE / REDUCED MOTION: simple flow ---------------- */
   if (FLOW) {
@@ -413,7 +413,7 @@
   show("#s-about", tA + .05);
   tl.from(".about-copy p", { y: 30, autoAlpha: 0, stagger: .1, duration: .3 }, tA + .1)
     .from(".now-pass", { y: 40, rotate: 6, autoAlpha: 0, duration: .35 }, tA + .3)
-    .from(".more .pill", { y: 20, autoAlpha: 0, stagger: .08, duration: .2 }, tA + .75);
+    .from(".more .pill", { y: 20, autoAlpha: 0, stagger: .06, duration: .18 }, tA + .45);
   mark("about", tA + .45);
   hide("#s-about", tA + 1.4);
 

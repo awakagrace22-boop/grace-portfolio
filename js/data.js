@@ -103,7 +103,7 @@ const HW = "assets/images/haco-web/";
 window.PROJECTS = [
   {
     slug: "haco-website",
-    title: "HACO Industries — Corporate Website Redesign",
+    title: "HACO Industries",
     subtitle: "Corporate website redesign",
     brand: "HACO Industries",
     year: "2026",
