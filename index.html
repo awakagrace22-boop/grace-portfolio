@@ -9,7 +9,7 @@
   <meta property="og:description" content="Ideas are everywhere. I make something out of them.">
   <meta property="og:image" content="https://framerusercontent.com/images/nToqo86CpaT30ANDvFVBVNams.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#6D2038">
+  <meta name="theme-color" content="#C8372A">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/Anton-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -109,17 +109,21 @@
   </section>
 
   <!-- HELLO -->
-  <section class="layer" id="s-hello" data-scene="hello" aria-label="Introduction">
-    <div class="doodles" aria-hidden="true">
-      <svg class="dd sq q1" viewBox="0 0 60 20"><path d="M2 10 C12 0, 18 20, 30 10 S48 0, 58 10"/></svg>
-      <svg class="dd sq q2" viewBox="0 0 60 20"><path d="M2 10 C12 0, 18 20, 30 10 S48 0, 58 10"/></svg>
-      <svg class="dd star s3" viewBox="0 0 20 20"><path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8Z"/></svg>
-      <svg class="dd circ dc1" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
-      <svg class="dd circ dc2" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
+  <section class="layer" id="s-hello" data-scene="hello" aria-labelledby="hello-h">
+    <div class="hello">
+      <p class="sec-tag">Hello</p>
+      <div class="hello-head">
+        <h2 class="hi-line amp" id="hello-h">Hi, I'm Grace.</h2>
+        <img class="hello-sticker" src="assets/images/grace-illustration-sm.webp" alt="" width="480" height="439" aria-hidden="true">
+      </div>
+      <div class="hello-row">
+        <p class="cap">A creative mind with a strategic streak. Endlessly curious about how things are made.</p>
+        <div class="hello-brands">
+          <p class="hb-label">Brands I shape</p>
+          <ul class="hb-list"><li>AMARA</li><li>MIADI</li><li>SO-SOFT</li><li>ACE</li><li>Ashanti-Q</li><li>HACO</li></ul>
+        </div>
+      </div>
     </div>
-    <h2 class="hi-line amp">Hi, I'm Grace.</h2>
-    <div class="band" aria-hidden="true"><div class="band-track"><span>AMARA</span><span>MIADI</span><span>SO-SOFT</span><span>ACE</span><span>Ashanti-Q</span><span>HACO</span><span>AMARA</span><span>MIADI</span><span>SO-SOFT</span><span>ACE</span><span>Ashanti-Q</span><span>HACO</span></div></div>
-    <p class="cap">A creative mind with a strategic streak. Endlessly curious about how things are made.</p>
   </section>
 
   <!-- STORY -->
@@ -147,8 +151,11 @@
   <!-- THE WAY I THINK -->
   <section class="layer" id="s-beliefs" data-scene="beliefs" aria-label="The way I think">
     <div class="bl-scene bl-a">
-      <p class="bl-hands amp">The way I think</p>
-      <h2 class="bl-years">I design for more than the first impression.</h2>
+      <div class="bl-a-in">
+        <p class="sec-tag bl-hands">The way I think</p>
+        <h2 class="bl-years">I design for more than the <em>first impression.</em></h2>
+        <p class="bl-sub">Four principles behind every brief <i aria-hidden="true">↓</i></p>
+      </div>
     </div>
     <div class="bl-scene bl-b">
       <div class="bl-inner">
@@ -175,17 +182,21 @@
       </div>
     </div>
     <div class="bl-scene bl-c">
-      <p class="c1">A little more about the work</p>
-      <p class="c2 amp">From the first sketch to the final scroll.</p>
-      <div class="c-grid">
-        <div class="c-copy">
-          <p>Brand renovations, launches, packaging systems and digital campaigns.</p>
-          <p>Rough sketch to shelf, screen and conversation.</p>
+      <div class="pc">
+        <div class="pc-head">
+          <p class="sec-tag c1">A little more about the work</p>
+          <h3 class="c2 amp">From the first sketch to the final scroll.</h3>
         </div>
-        <div class="c-stat"><b class="count" data-to="2.5" data-decimals="1" data-suffix="M+">2.5M+</b><span>views on one AMARA campaign</span></div>
+        <div class="c-grid">
+          <div class="c-copy">
+            <p class="c-lead">Brand renovations, launches, packaging systems and digital campaigns.</p>
+            <p>Rough sketch to shelf, screen and conversation.</p>
+            <p class="c3">Numbers tell half the story. The thinking behind them tells the rest.</p>
+            <button class="pill" data-go="work">Explore selected projects</button>
+          </div>
+          <div class="c-stat"><b class="count" data-to="2.5" data-decimals="1" data-suffix="M+">2.5M+</b><span>views on one AMARA campaign</span></div>
+        </div>
       </div>
-      <p class="c3">Numbers tell half the story. The thinking behind them tells the rest.</p>
-      <button class="pill" data-go="work">Explore selected projects</button>
     </div>
   </section>
 
@@ -301,5 +312,6 @@
 <script src="js/vendor/ScrollToPlugin.min.js"></script>
 <script src="js/vendor/lenis.min.js"></script>
 <script src="js/lucid.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

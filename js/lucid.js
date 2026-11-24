@@ -12,7 +12,7 @@
   const FLOW = reduce || small;
   if (FLOW) html.classList.add("flow");
 
-  const C = { bordo: "#6D2038", bordoDeep: "#4E1628", ink: "#0D3138", green: "#E0A3AF", greenDeep: "#082429", cream: "#F4EFE7", cream2: "#FFFFFF", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#E0A3AF", rose: "#E0A3AF", taupe: "#B9D0CC", stone: "#E6DED2", black: "#0D3138" };
+  const C = { g: "#4B624B", gDeep: "#33463A", gInk: "#1F2B21", orange: "#E74536", bordo: "#C8372A", bordoDeep: "#A82E22", ink: "#33463A", green: "#FFB4A3", greenDeep: "#26352A", cream: "#FFFFFF", cream2: "#FFFFFF", skin: "#A8604E", skinD: "#8E4E3E", leaf: "#FFB4A3", rose: "#FFB4A3", taupe: "#C9D6C8", stone: "#EEF1EC", black: "#33463A" };
 
   /* ---------------- Grace, the character ---------------- */
   const EYES = {"w":1115,"h":1041,"eyes":{"gl":{"clip":[[364,534],[367,533],[371,532],[388,528],[401,525],[406,524],[434,522],[435,522],[438,523],[440,524],[446,528],[447,529],[449,532],[453,540],[454,543],[454,548],[453,550],[452,551],[437,556],[421,561],[417,562],[412,563],[391,563],[386,562],[383,561],[378,559],[376,558],[358,546],[357,545],[357,543],[358,541],[363,535]],"p":[424.5,538.4],"r":21.9,"c":[408.0,542.8]},"gr":{"clip":[[526,519],[526,509],[527,503],[529,497],[535,485],[540,480],[543,478],[558,470],[572,463],[575,462],[590,460],[590,491],[589,495],[588,497],[570,509],[558,515],[552,517],[548,518],[543,519]],"p":[579.9,479.3],"r":20.8,"c":[559.7,491.4]},"cl":{"clip":[[341,218],[338,212],[337,207],[337,200],[338,195],[342,187],[344,185],[347,183],[349,182],[355,180],[360,179],[365,179],[371,180],[375,181],[389,185],[391,187],[393,191],[394,194],[395,198],[395,207],[394,211],[393,212],[381,220],[375,223],[372,224],[368,225],[354,225],[350,224],[344,221]],"p":[385.7,198.9],"r":17.6,"c":[365.29999999999995,202.1]},"cr":{"clip":[[451,164],[451,149],[452,145],[455,139],[457,137],[460,135],[465,133],[470,132],[475,132],[479,133],[497,139],[498,140],[501,146],[502,149],[502,163],[501,167],[498,169],[490,174],[480,179],[475,180],[468,180],[464,179],[461,178],[457,176],[456,175],[452,167]],"p":[493.5,153.1],"r":17.7,"c":[475.6,155.9]}}};
@@ -22,10 +22,10 @@
     const out = e.clip.map(([x, y]) => { const dx = x - cx, dy = y - cy, d = Math.hypot(dx, dy) || 1; return [(x + dx / d * 3).toFixed(1), (y + dy / d * 3).toFixed(1)].join(","); }).join(" ");
     return `<clipPath id="clip-${k}"><polygon points="${pts}"/></clipPath>
       <g class="eye-v" data-k="${k}" data-cx="${cx}" data-cy="${cy}" data-px="${e.p[0]}" data-py="${e.p[1]}" data-cat="${k[0] === "c" ? 1 : 0}">
-        <g clip-path="url(#clip-${k})"><circle class="pupil-v" cx="${e.p[0]}" cy="${e.p[1]}" r="${e.r}" fill="#061C20"/>
+        <g clip-path="url(#clip-${k})"><circle class="pupil-v" cx="${e.p[0]}" cy="${e.p[1]}" r="${e.r}" fill="#1A261D"/>
         <circle class="glint" cx="${e.p[0] - e.r * .35}" cy="${e.p[1] - e.r * .38}" r="${e.r * .22}" fill="#F7E4D9" opacity=".9"/></g>
-        <polygon class="lid" points="${pts}" fill="#B85D73"/>
-        <polygon points="${out}" fill="none" stroke="#082429" stroke-width="7" stroke-linejoin="round"/>
+        <polygon class="lid" points="${pts}" fill="#C8372A"/>
+        <polygon points="${out}" fill="none" stroke="#26352A" stroke-width="7" stroke-linejoin="round"/>
       </g>`;
   }).join("");
   const ME = `
@@ -49,8 +49,8 @@
   const MATATU = `
   <svg viewBox="0 0 400 200" aria-hidden="true">
     <defs>
-      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#6D2038"/><stop offset=".45" stop-color="#E0A3AF"/><stop offset=".8" stop-color="#B9D0CC"/><stop offset="1" stop-color="#F4EFE7"/></linearGradient>
-      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E0A3AF" stop-opacity=".9"/><stop offset="1" stop-color="#E0A3AF" stop-opacity="0"/></radialGradient>
+      <linearGradient id="nb" x1="0" x2="1"><stop offset="0" stop-color="#C8372A"/><stop offset=".45" stop-color="#FFB4A3"/><stop offset=".8" stop-color="#C9D6C8"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFB4A3" stop-opacity=".9"/><stop offset="1" stop-color="#FFB4A3" stop-opacity="0"/></radialGradient>
       <clipPath id="bodyclip"><path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z"/></clipPath>
     </defs>
     <ellipse class="underglow" cx="200" cy="176" rx="190" ry="16" fill="url(#glow)"/>
@@ -63,30 +63,30 @@
     <g clip-path="url(#bodyclip)">
       <!-- graffiti art -->
       <path d="M10 120 Q60 90 110 118 T210 112 T310 120 T400 108 V160 H10Z" fill="${C.ink}" opacity=".9"/>
-      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#F4EFE7" stroke-width="4"/>
-      <g fill="#F4EFE7" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
-      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#F4EFE7" opacity=".85"/>
+      <path d="M10 126 Q60 98 110 124 T210 118 T310 126 T400 114" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+      <g fill="#FFFFFF" opacity=".9"><circle cx="58" cy="138" r="5"/><circle cx="150" cy="140" r="3"/><circle cx="246" cy="136" r="6"/><circle cx="330" cy="142" r="4"/></g>
+      <path d="M200 80 l10 -20 l6 16 l14 -10 l-4 18 l16 4 l-16 8 l6 14 l-16 -8 l-8 14 l-4 -16 l-16 2 l10 -12z" fill="#FFFFFF" opacity=".85"/>
       <path d="M118 84 q8 -18 22 -6 q14 -16 20 6" fill="none" stroke="#fff" stroke-width="3" opacity=".7"/>
     </g>
     <path d="M30 44 Q30 30 46 30 H318 Q350 30 364 64 L376 104 Q380 120 380 132 V146 Q380 154 372 154 H26 Q18 154 18 146 V58 Q18 44 30 44Z" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
     <!-- tinted windows -->
-    <g fill="#0D3138" stroke="${C.ink}" stroke-width="4">
+    <g fill="#33463A" stroke="${C.ink}" stroke-width="4">
       <rect x="36" y="42" width="56" height="40" rx="8"/><rect x="100" y="42" width="56" height="40" rx="8"/><rect x="164" y="42" width="56" height="40" rx="8"/><rect x="228" y="42" width="56" height="40" rx="8"/>
       <path d="M294 42 H320 Q340 42 348 62 L356 82 H294 Z"/>
     </g>
     <g fill="none" stroke="#fff" stroke-width="3" opacity=".35"><path d="M44 74 L62 48"/><path d="M108 74 L126 48"/><path d="M172 74 L190 48"/><path d="M236 74 L254 48"/></g>
     <!-- route board -->
-    <rect x="298" y="46" width="44" height="18" rx="3" fill="#F4EFE7" stroke="${C.ink}" stroke-width="2.5"/>
+    <rect x="298" y="46" width="44" height="18" rx="3" fill="#FFFFFF" stroke="${C.ink}" stroke-width="2.5"/>
     <text x="320" y="60" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="13" fill="${C.ink}">45</text>
     <!-- side lettering -->
     <text x="164" y="106" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="20" fill="#fff" stroke="${C.ink}" stroke-width="4" paint-order="stroke" letter-spacing="1" transform="rotate(-3 164 100)">GITHURAI 45</text>
     <text x="300" y="120" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="10" fill="${C.ink}" letter-spacing="1">GRACE ON BOARD</text>
     <!-- lights -->
-    <circle cx="372" cy="94" r="7" fill="#F4EFE7" stroke="${C.ink}" stroke-width="3"/>
-    <rect x="20" y="96" width="8" height="18" rx="2" fill="#E0A3AF" stroke="${C.ink}" stroke-width="2"/>
-    <g class="leds"><circle cx="40" cy="34" r="3" fill="#B9D0CC"/><circle cx="90" cy="34" r="3" fill="#E0A3AF"/><circle cx="140" cy="34" r="3" fill="#F4EFE7"/><circle cx="190" cy="34" r="3" fill="#B9D0CC"/><circle cx="240" cy="34" r="3" fill="#E0A3AF"/><circle cx="290" cy="34" r="3" fill="#F4EFE7"/></g>
+    <circle cx="372" cy="94" r="7" fill="#FFFFFF" stroke="${C.ink}" stroke-width="3"/>
+    <rect x="20" y="96" width="8" height="18" rx="2" fill="#FFB4A3" stroke="${C.ink}" stroke-width="2"/>
+    <g class="leds"><circle cx="40" cy="34" r="3" fill="#C9D6C8"/><circle cx="90" cy="34" r="3" fill="#FFB4A3"/><circle cx="140" cy="34" r="3" fill="#FFFFFF"/><circle cx="190" cy="34" r="3" fill="#C9D6C8"/><circle cx="240" cy="34" r="3" fill="#FFB4A3"/><circle cx="290" cy="34" r="3" fill="#FFFFFF"/></g>
     <!-- plate -->
-    <rect x="336" y="134" width="40" height="14" rx="2" fill="#F4EFE7" stroke="${C.ink}" stroke-width="2"/>
+    <rect x="336" y="134" width="40" height="14" rx="2" fill="#FFFFFF" stroke="${C.ink}" stroke-width="2"/>
     <text x="356" y="145" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="900" font-size="9" fill="${C.ink}">KGA 45G</text>
     <!-- chrome rims -->
     <g class="wheel"><circle cx="88" cy="158" r="27" fill="${C.ink}"/><circle cx="88" cy="158" r="16" fill="#D9D9E3" stroke="#8E8EA0" stroke-width="2"/><path d="M88 142 V174 M72 158 H104 M77 147 L99 169 M99 147 L77 169" stroke="#8E8EA0" stroke-width="3"/><circle cx="88" cy="158" r="4" fill="${C.ink}"/></g>
@@ -111,6 +111,14 @@
         return `<span class="ch${cls}">${c}</span>`;
       }).join("")}</span>`).join(" ");
   });
+  /* word-split for masked headline reveals (keeps <em> emphasis) */
+  $$(".bl-years").forEach(el => {
+    el.setAttribute("aria-label", el.textContent.trim());
+    const wrap = t => t.split(/(\s+)/).map(w => /^\s+$/.test(w) || !w ? w : `<span class="bm"><span class="bw">${w}</span></span>`).join("");
+    el.innerHTML = [...el.childNodes].map(n => n.nodeType === 3 ? wrap(n.textContent) : `<em>${wrap(n.textContent)}</em>`).join("");
+    $$(".bm", el).forEach(m => m.setAttribute("aria-hidden", "true"));
+  });
+  $$(".name").forEach(h => { h.setAttribute("aria-label", h.textContent.trim()); $$(":scope > span", h).forEach(w => { w.setAttribute("aria-hidden", "true"); w.innerHTML = [...w.textContent].map(c => `<span class="nc">${c}</span>`).join(""); }); });
   const HL = ["job", "beyond", "dots.", "making."];
   $$(".words").forEach(el => { el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="wd${HL.includes(w) ? " hl" : ""}">${w}</span>`).join(""); });
 
@@ -232,8 +240,8 @@
 
   /* ---------------- per-scene colours ---------------- */
   const SCENES = {
-    hero: [C.bordo, C.cream], impact: [C.black, C.cream], hello: [C.cream, C.black], story: [C.stone, C.black], systems: [C.cream, C.black], beliefs: [C.black, C.cream],
-    work: [C.cream, C.black], explore: [C.black, C.cream], based: [C.bordo, C.cream], about: [C.cream, C.black], contact: [C.black, C.cream]
+    hero: [C.g, C.cream], impact: [C.gDeep, C.cream], hello: [C.cream, C.gInk], story: [C.g, C.cream], systems: [C.cream, C.gInk], beliefs: [C.gDeep, C.cream],
+    work: [C.g, C.cream], explore: [C.gDeep, C.cream], based: [C.orange, C.cream], about: [C.cream, C.gInk], contact: [C.g, C.cream]
   };
 
   const gs = window.gsap;
@@ -319,11 +327,12 @@
 
   /* 1 · hello */
   show("#s-hello", 1.8, .2);
-  tl.from("#s-hello .band", { xPercent: -30, autoAlpha: 0, duration: .4 }, 1.95)
-    .from("#s-hello", { "--arch": 0 }, 1.9);
-  tl.from("#s-hello .hi-line .ch", { yPercent: 110, autoAlpha: 0, rotate: 8, stagger: .025, duration: .35, ease: "back.out(1.6)" }, 1.9)
-    .from("#s-hello .cap", { y: 30, autoAlpha: 0, duration: .3 }, 2.25)
-    .from("#s-hello .dd", { scale: 0, duration: .3, stagger: .04 }, 2.0);
+  tl.from("#s-hello .sec-tag", { x: -20, autoAlpha: 0, duration: .2 }, 1.85)
+    .from("#s-hello .hi-line .ch", { yPercent: 110, autoAlpha: 0, rotate: 6, stagger: .02, duration: .32, ease: "power3.out" }, 1.9)
+    .from(".hello-sticker", { scale: 0, rotate: -40, autoAlpha: 0, duration: .35, ease: "back.out(1.7)" }, 2.1)
+    .from(".hello-row", { "--rule": 0, duration: .3 }, 2.05)
+    .from("#s-hello .cap, .hb-label", { y: 24, autoAlpha: 0, stagger: .06, duration: .25 }, 2.15)
+    .from(".hb-list li", { y: 18, autoAlpha: 0, stagger: .035, duration: .2 }, 2.22);
   mark("hello", 2.3);
   hide("#s-hello", 3.05);
 
@@ -354,8 +363,9 @@
   show("#s-beliefs", tT + .1, .1);
   const bA = $(".bl-a"), bB = $$(".bl-b"), bC = $(".bl-c");
   show(bA, tT + .15);
-  tl.from(".bl-hands .ch", { y: 30, autoAlpha: 0, stagger: .015, duration: .2 }, tT + .15)
-    .from(".bl-years", { scale: .8, autoAlpha: 0, duration: .4, ease: "back.out(1.5)" }, tT + .3);
+  tl.from(".bl-a .sec-tag", { x: -20, autoAlpha: 0, duration: .2 }, tT + .15)
+    .from(".bl-years .bw", { yPercent: 105, rotate: 4, autoAlpha: 0, stagger: .035, duration: .3, ease: "power3.out" }, tT + .22)
+    .from(".bl-sub", { y: 16, autoAlpha: 0, duration: .2 }, tT + .5);
   mark("beliefs", tT + .45);
   hide(bA, tT + 1.0, .2);
   bB.forEach((b, i) => {
@@ -370,7 +380,7 @@
   show(bC, tC, .2);
   tl.from(".bl-c .c1", { y: 20, autoAlpha: 0, duration: .2 }, tC + .05)
     .from(".bl-c .c2 .ch", { yPercent: 100, autoAlpha: 0, stagger: .01, duration: .2 }, tC + .15)
-    .from(".c-copy p", { y: 24, autoAlpha: 0, stagger: .1, duration: .25 }, tC + .45)
+    .from(".c-copy p:not(.c3)", { y: 24, autoAlpha: 0, stagger: .1, duration: .25 }, tC + .45)
     .from(".c-stat", { scale: .4, rotate: 10, autoAlpha: 0, duration: .4, ease: "back.out(1.8)" }, tC + .55)
     .from(".bl-c .c3, .bl-c .pill", { y: 20, autoAlpha: 0, stagger: .1, duration: .2 }, tC + .8);
   mark("process", tC + .85);
@@ -381,7 +391,8 @@
   colour("work", tW);
   show("#s-work", tW + .05);
   tl.from("#s-work .work-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, tW + .1)
-    .to("#track", { x: () => -Math.max(0, $("#track").scrollWidth - innerWidth + 40), duration: 3 }, tW + .45);
+    .to("#track", { x: () => -Math.max(0, $("#track").scrollWidth - innerWidth + 40), duration: 3 }, tW + .45)
+    .fromTo("#track .cover img", { xPercent: -5 }, { xPercent: 5, duration: 3 }, tW + .45);
   mark("work", tW + .35);
   hide("#s-work", tW + 3.55);
 
@@ -391,7 +402,8 @@
   show("#s-explore", tX + .05);
   tl.from("#s-explore .work-head > *", { y: 40, autoAlpha: 0, stagger: .08, duration: .3 }, tX + .1)
     .from(".xcard", { y: 80, rotate: (i) => (i % 2 ? 4 : -4), autoAlpha: 0, stagger: .08, duration: .4, ease: "back.out(1.5)" }, tX + .2)
-    .to("#xtrack", { x: () => -Math.max(0, $("#xtrack").scrollWidth - innerWidth + 40), duration: 2.6 }, tX + .55);
+    .to("#xtrack", { x: () => -Math.max(0, $("#xtrack").scrollWidth - innerWidth + 40), duration: 2.6 }, tX + .55)
+    .fromTo("#xtrack .cover img", { xPercent: -5 }, { xPercent: 5, duration: 2.6 }, tX + .55);
   mark("explore", tX + .4);
   hide("#s-explore", tX + 3.25);
 
@@ -484,8 +496,11 @@
   gs.to(".stamp svg", { rotate: 360, duration: 18, ease: "none", repeat: -1 });
 
   /* intro entrance */
-  gs.from(["#top", ".kicker", ".name-wrap", ".phrase"], { y: 30, autoAlpha: 0, duration: .9, stagger: .12, ease: "power3.out", delay: .1 });
-  gs.from("#me", { yPercent: 40, duration: 1.2, ease: "back.out(1.2)", delay: .3 });
+  gs.from(["#top", ".kicker", ".phrase"], { y: 24, autoAlpha: 0, duration: .8, stagger: .12, ease: "power3.out", delay: .1 });
+  gs.from(".who svg", { clipPath: "inset(0 100% 0 0)", duration: .9, ease: "expo.inOut", delay: .15, clearProps: "clipPath" });
+  gs.from(".name .nc", { yPercent: 115, rotate: 7, duration: .9, stagger: .035, ease: "expo.out", delay: .25 });
+  gs.from(".halo", { scale: .7, autoAlpha: 0, duration: 1.2, ease: "expo.out", delay: .3 });
+  gs.fromTo("#me", { clipPath: "inset(100% 0% 0% 0% round 45%)" }, { clipPath: "inset(0% 0% 0% 0% round 0%)", duration: 1.2, ease: "expo.out", delay: .4, clearProps: "clipPath" });
   gs.from([".hero-intro", ".aisle", ".hint", "#ruler"], { autoAlpha: 0, y: 20, duration: .6, stagger: .1, delay: 1.1 });
 
   addEventListener("resize", () => {
